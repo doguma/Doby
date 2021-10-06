@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, render_template, Blueprint, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>lets see some changes</h1>"
+    return render_template('index.html', title='doelsevier : analyze scholarly articles')
