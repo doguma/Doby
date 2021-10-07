@@ -43,10 +43,8 @@ def trending():
         temp_str = temp_soup.find('div', id='enc-abstract')
         if temp_str:
             temp_json['text'] = temp_str.get_text()
-        else:
-            temp_json['text'] = ''
+            temp.append(temp_json)
 
-        temp.append(temp_json)
 
     driver.quit()
 
