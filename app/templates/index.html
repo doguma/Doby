@@ -55,8 +55,8 @@
                     <div class="col bg-dark pt-5 px-5">
                         <div class="p-3">
                             <h4>{{ item.title }}</h4>
-                            <p class="lead">{{item.authors}}</p>
-                            <em>{item.citation}}</em>{
+                            <span class="lead" style="display: inline-block; width: 200px; white-space: nowrap; overflow: hidden !important; text-overflow: ellipsis;">{{item.authors}}</p>
+                            <em>{{item.citation}}</em>
                             {{item.text}}
                             <a href={{item.text}}><b>{{item.url}}</b></a>
                         </div>
