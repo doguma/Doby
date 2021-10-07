@@ -5,7 +5,7 @@ import time
 # from selenium import webdriver
 # from selenium.webdriver.common.keys import Keys
 # from bs4 import BeautifulSoup
-from selenium_proc import search, trending
+from app.selenium_proc import search, trending
 
 app = Flask(__name__)
 
