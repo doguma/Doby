@@ -32,7 +32,12 @@ def trending():
         temp_json = {}
 
         temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
-        temp_json['authors'] = remove_space(ar.select_one('.docsum-authors').get_text())
+
+        temp_author = remove_space(ar.select_one('.docsum-authors').get_text())
+        return_author = (temp_author[:40] + '..') if len(temp_author) > 40 else temp_author
+        temp_json['authors'] = return_author
+
+
         temp_json['citation'] = remove_space(ar.select_one('.docsum-citation').get_text())
 
         temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov' + str(ar.find('a').get('href'))
@@ -42,9 +47,10 @@ def trending():
         temp_soup = BeautifulSoup(temp_html, 'html.parser')
         temp_str = temp_soup.find('div', id='enc-abstract')
         if temp_str:
-            temp_json['text'] = temp_str.get_text()
+            temp_str = temp_str.get_text()
+            return_text = (temp_str[:200] + '..') if len(temp_str) > 200 else temp_str
+            temp_json['text'] = return_text
             temp.append(temp_json)
-
 
     driver.quit()
 
