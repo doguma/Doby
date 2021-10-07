@@ -52,10 +52,10 @@
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {% for item in google_html %}
                     <div class="col bg-dark pt-5 px-5">
-                        <div class="p-3">
+                        <div class="p-3" 
+                        style="display: inline-block; width: 300px; white-space: nowrap; overflow: hidden !important; text-overflow: ellipsis;">
                             <h4>{{ item.title }}</h4>
-                            <span class="lead"
-                                style="display: inline-block; width: 200px; white-space: nowrap; overflow: hidden !important; text-overflow: ellipsis;">{{item.citation}}</span>
+                            <span class="lead">{{item.citation}}</span>
                             <p>{{item.text}}</p>
                             <a href="{{item.url}}"><b>{{item.url}}</b></a>
                         </div>
