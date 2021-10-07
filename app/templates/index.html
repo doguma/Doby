@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>doelsevier - NLP analysis and visualization of scholarly articles</title>
+    <title>doby - NLP analysis and visualization of scholarly articles</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -15,17 +15,15 @@
     <header class="sticky-top py-2 bg-dark">
         <nav class="d-flex py-2  ml-5">
             <a class="py-2 d-none d-md-inline-block text-light" href="#" aria-label="Product">
-
-                <i class="far fa-bookmark"></i>&nbsp; &nbsp;&nbsp;<b>doelsevier</b>
+                <i class="far fa-bookmark"></i>&nbsp; &nbsp;&nbsp;<b>doby</b>
             </a>
-
         </nav>
     </header>
 
     <main>
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div class="col-md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal">Doelsevier</h1>
+                <h1 class="display-4 fw-normal">Doby</h1>
                 <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                 <div class="container">
                     <div class="row height d-flex justify-content-center align-items-center">
@@ -57,7 +55,8 @@
                     <div class="col bg-dark pt-5 px-5">
                         <div class="p-3">
                             <h4>{{ item.title }}</h4>
-                            <p class="lead">And an even wittier subheading.</p>
+                            <p class="lead">{{item.authors}}</p>
+                            {{item.text}}
                         </div>
                         <div class="bg-body shadow-sm mx-auto"
                             style="width: 100%; height: 200px; border-radius: 21px 21px 0 0;">

@@ -16,6 +16,9 @@ def start_chromedriver():
     return driver
 
 
+def remove_space(string):
+    return re.sub(r'\n', '', string)
+
 def trending():
     driver = start_chromedriver()
     driver.get('https://pubmed.ncbi.nlm.nih.gov/trending/')
@@ -28,9 +31,9 @@ def trending():
     for ar in soup.find_all('article'):
         temp_json = {}
 
-        temp_str = ar.select_one('.docsum-title').get_text().strip("\n")
-        temp_json['title'] = re.sub(r'\n', '', temp_str)
-
+        temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
+        temp_json['authors'] = remove_space(ar.select_one('.docsum-authors').get_text())
+        temp_json['text'] = remove_space(ar.select_one('.full-view-snippet').get_text())
         temp.append(temp_json)
 
     driver.quit()
