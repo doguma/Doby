@@ -48,20 +48,20 @@
                 <h2>Trending Articles on PubMed</h2>
                 <p> PubMed records with recent increases in activity <br />- <b> {{today}}</b></p>
             </div>
-            <div class="container d-md-flex flex-md-equal mw-100 text-light">
+            <div class="container d-md-flex flex-md-equal mw-90 text-light">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     {% for item in google_html %}
                     <div class="card col bg-dark pt-5 px-5">
                         <div class="card-title p-3">
-                            <h5>{{ item.title }}</h5>
-                            <div style="color:rgb(255, 236, 160);">
+                            <h6 small>{{ item.title }}</h6>
+                            <div style="color:rgb(255, 236, 160); font-size: 70%">
                                 <em>{{item.authors}}</em>
                             </div>
                             <div class="card-text pt-3">
-                                <p>{{item.text}}</p>
+                                <p style="font-size: 80%">{{item.text}}</p>
 
                             </div>
-                            <div>
+                            <div style="font-size: 70%">
                                 <a href="{{item.url}}">{{item.url}}</a>
                             </div>
                         </div>
