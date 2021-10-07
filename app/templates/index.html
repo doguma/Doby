@@ -56,7 +56,9 @@
                         <div class="p-3">
                             <h4>{{ item.title }}</h4>
                             <p class="lead">{{item.authors}}</p>
+                            <em>{item.type}}</em>{
                             {{item.text}}
+                            <a href={{item.text}}><b>{{item.url}}</b></a>
                         </div>
                         <div class="bg-body shadow-sm mx-auto"
                             style="width: 100%; height: 200px; border-radius: 21px 21px 0 0;">
@@ -125,7 +127,7 @@
     <footer class="container py-5">
         <div class="row">
             <div class="col-3 col-md">
-                <i class="far fa-bookmark"></i></i>&nbsp; &nbsp;<b>doelsevier</b>
+                <i class="far fa-bookmark"></i></i>&nbsp; &nbsp;<b>doby</b>
                 <small class="d-block mb-3 text-muted">© doguma 2021</small>
             </div>
             <div class="col-6 col-md">

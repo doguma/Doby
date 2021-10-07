@@ -33,7 +33,12 @@ def trending():
 
         temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
         temp_json['authors'] = remove_space(ar.select_one('.docsum-authors').get_text())
-        temp_json['text'] = remove_space(ar.select_one('.full-view-snippet').get_text())
+        temp_json['type'] = remove_space(ar.select_one('.publication-type').get_text())
+        temp_json['text'] = remove_space(ar.select_one('.docsum-snippet').get_text())
+
+        temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov/' + str(ar.find('a').get('href'))
+
+        
         temp.append(temp_json)
 
     driver.quit()
