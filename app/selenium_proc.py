@@ -35,7 +35,7 @@ def trending():
         temp_json['authors'] = remove_space(ar.select_one('.docsum-authors').get_text())
         temp_json['citation'] = remove_space(ar.select_one('.docsum-citation').get_text())
         temp_json['text'] = remove_space(ar.select_one('.docsum-snippet').get_text())
-        temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov/' + str(ar.find('a').get('href'))
+        temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov' + str(ar.find('a').get('href'))
 
         
         temp.append(temp_json)
