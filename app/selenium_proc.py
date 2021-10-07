@@ -1,5 +1,5 @@
 import re
-import time
+import os, time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
@@ -7,8 +7,12 @@ from bs4 import BeautifulSoup
 
 def start_chromedriver():
     options = webdriver.ChromeOptions()
+    options.binary_location = os.environmen.get("GOOGLE_CHROME_BIN")
     options.add_argument('headless')
-    driver = webdriver.Chrome('/Users/doguma/Documents/chromedriver', chrome_options=options)
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+
+    driver = webdriver.Chrome(excetuable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
     return driver
 
 
