@@ -48,9 +48,11 @@ def trending():
         temp_str = temp_soup.find('div', id='enc-abstract')
         if temp_str:
             temp_str = temp_str.get_text()
-            return_text = (temp_str[:200] + '..') if len(temp_str) > 200 else temp_str
-            temp_json['text'] = return_text
-            temp.append(temp_json)
+            if len(temp_str):
+                return_text = temp_str[:200] + '..'
+                temp_json['text'] = return_text
+
+                temp.append(temp_json)
 
     driver.quit()
 

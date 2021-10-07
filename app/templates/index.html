@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <header class="sticky-top py-2 bg-dark">
-        <nav class="d-flex py-2  ml-5">
-            <a class="py-2 d-none d-md-inline-block text-light" href="#" aria-label="Product">
+    <header class="sticky-top py-2 bg-dark clearfix">
+        <nav class="py-2 ml-5">
+            <a class="py-2 text-light" href="#" aria-label="Product">
                 <i class="fas fa-egg"></i>&nbsp; &nbsp;&nbsp;<b>doby</b>
             </a>
         </nav>
@@ -54,11 +54,10 @@
                     <div class="card col bg-dark pt-5 px-5">
                         <div class="card-title p-3">
                             <h5>{{ item.title }}</h5>
-                            <div
-                                style="display: inline-block; width: 300px; white-space: nowrap; overflow: hidden !important; text-overflow: ellipsis;">
+                            <div class="pt-5" style="color:rgb(255, 214, 51);">
                                 <em>{{item.citation}}</em>
                             </div>
-                            <div class="card-text">
+                            <div class="card-text pt-5">
                                 <p>{{item.text}}</p>
   
                             </div>
