@@ -39,7 +39,7 @@ def trending():
 
         driver.get(temp_json['url'])
         temp_html = driver.page_source
-        temp_soup = BeautifulSoup(html, 'html.parser')
+        temp_soup = BeautifulSoup(temp_html, 'html.parser')
         temp_str = temp_soup.find('div', id='enc-abstract')
         if temp_str:
             temp_json['text'] = temp_str.get_text()
