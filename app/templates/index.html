@@ -28,12 +28,16 @@
                     <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                     <div class="container-fluid">
                         <!-- {% if err_message %} -->
-                        {% for message in get_flashed_messages() %}
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
                         <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle"
                             style="margin-top: -0.5em;">
                             {{ message }}
                         </span>
                         {% endfor %}
+                        {% endif %}
+                        {% endwith %}
                         <!-- {% else %}
                     <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                         all good
