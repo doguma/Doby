@@ -54,7 +54,7 @@ def add():
 
             # keywords = Word.query.all()
 
-    return redirect(url_for('.index', err_message=message, keywords = keywords))
+    return redirect(url_for('.index', err_message=message))
 
 
 @app.route("/delete", methods=["GET", "POST"])
