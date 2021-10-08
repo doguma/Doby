@@ -28,10 +28,11 @@ db.create_all()
 res = trending()
 today = date.today().strftime("%b %d, %Y")
 
-keywords = Word.query.all()
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+
+    keywords = Word.query.all()
 
     if request.form:
         try:
@@ -47,6 +48,7 @@ def index():
 
 @app.route("/update", methods=["POST"])
 def update():
+    message = ''
     try:
         newword = request.form.get("newkeyword")
         oldword = request.form.get("oldkeyword")
@@ -60,7 +62,7 @@ def update():
     except Exception as e:
         message = "Couldn't update keywords"
         print(e)
-    return redirect("/", err_message = message)
+    return redirect(request.referrer, err_message = message)
 
 
 @app.route("/delete", methods=["POST"])
@@ -69,7 +71,7 @@ def delete():
     word = Word.query.filter_by(word=selected).first()
     db.session.delete(word)
     db.session.commit()
-    return redirect("/")
+    return redirect(request.referrer)
 
 
 if __name__ == "__main__":

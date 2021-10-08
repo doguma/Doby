@@ -31,9 +31,12 @@
                             <div class="input-group mb-3">
                                 <!-- <i class="fa fa-search"></i> -->
 
-                                <form method="POST" action="/" class="form-control" placeholder="Search your interest...">
-                                    <input type="text" name="keyword">
-                                    <input type="submit" value="Add">
+                                <form method="POST" action="/">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="keyword"
+                                            placeholder="Search your interest...">
+                                        <button type="button" class="btn btn-light">Info</button>
+                                    </div>
                                 </form>
 
                                 <h3> Keywords </h3>
@@ -41,16 +44,19 @@
                                 {% if keywords %}
                                 {% for keyword in keywords %}
                                 <p>{{keyword.word}}</p>
+
                                 <form method="POST" action="./update">
-                                    <input type="hidden" value="{{keyword.word}}" name="oldkeyword">
-                                    <input type="text" value="{{keyword.word}}" name="newkeyword">
-                                    <input type="submit" value="Update">
+                                    <div class="input-group">
+                                    <input class="form-control" type="hidden" value="{{keyword.word}}" name="oldkeyword">
+                                    <input class="form-control" type="text" name="newkeyword">
+                                    <input type="submit" class="btn btn-outline-primary" value="Update">
+                                </div>
                                 </form>
 
                                 <form method="POST" action="./delete">
                                     <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                    <input type="submit" value="Delete">
-                                  </form>
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
                                 {% endfor %}
                                 {% endif %}
                             </div>
