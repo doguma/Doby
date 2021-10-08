@@ -39,8 +39,7 @@ def index():
 
 
 @app.route("/add", methods=["GET", "POST"])
-def delete():
-
+def add():
     if request.form:
         new_word=request.form.get("keyword")
 
