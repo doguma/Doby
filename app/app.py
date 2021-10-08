@@ -23,6 +23,7 @@ class Word(db.Model):
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
 
+db.create_all()
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -51,7 +52,7 @@ def update():
     try:
         newword = request.form.get("newkeyword")
         oldword = request.form.get("oldkeyword")
-        book = Word.query.filter_by(title=oldword).first()
+        book = Word.query.filter_by(word=oldword).first()
         book.title = newword
         db.session.commit()
     except Exception as e:
