@@ -5,7 +5,6 @@ from datetime import date
 import json
 import time, os, sys
 import psycopg2
-from app import db
 
 from app.selenium_proc import search, trending
 
@@ -16,7 +15,7 @@ SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace('postgres://', 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 class Word(db.Model):
     word = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
