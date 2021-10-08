@@ -32,37 +32,25 @@ today = date.today().strftime("%b %d, %Y")
 @app.route('/', methods=["GET", "POST"])
 def index():
 
+    message = ''
     keywords = Word.query.all()
 
     if request.form:
         try:
-            keyword = Word(word=request.form.get("keyword"))
-            db.session.add(keyword)
-            db.session.commit()
+            new_word=request.form.get("keyword")
+
+            if Word.query.filter_by(word=new_word).first():
+                message = "duplicate keyword"
+            else:
+                new_keyword = Word(word=new_word)
+                db.session.add(new_keyword)
+                db.session.commit()
+
         except Exception as e:
-            print("Failed to add keyword")
+            message = "Failed to add keyword"
             print(e)
 
-    return render_template("index.html", trending_articles = res, today = today, keywords = keywords)
-
-
-@app.route("/update", methods=["POST"])
-def update():
-    message = ''
-    try:
-        newword = request.form.get("newkeyword")
-        oldword = request.form.get("oldkeyword")
-        keyword = Word.query.filter_by(word=oldword).first()
-        if Word.query.filter_by(word=newword).first():
-            message = "duplicate keyword"
-        else:
-            keyword.word = newword
-        db.session.commit()
-
-    except Exception as e:
-        message = "Couldn't update keywords"
-        print(e)
-    return render_template("index.html", err_message = message)
+    return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
 
 
 @app.route("/delete", methods=["POST"])
@@ -71,7 +59,7 @@ def delete():
     word = Word.query.filter_by(word=selected).first()
     db.session.delete(word)
     db.session.commit()
-    return render_template("index.html")
+    return redirect(url_for(''))
 
 
 if __name__ == "__main__":
