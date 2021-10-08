@@ -39,7 +39,9 @@ def index():
         try:
             new_word=request.form.get("keyword")
 
-            if Word.query.filter_by(word=new_word).first():
+            if len(new_word) < 1:
+                message = "you didn't type anything"
+            elif Word.query.filter_by(word=new_word).first():
                 message = "duplicate keyword"
             else:
                 new_keyword = Word(word=new_word)
@@ -51,6 +53,7 @@ def index():
             print(e)
 
     return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
+
 
 
 @app.route("/delete", methods=["POST"])

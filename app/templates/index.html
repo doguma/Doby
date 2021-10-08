@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="5"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>doby - NLP analysis and visualization of scholarly articles</title>
 
@@ -27,22 +28,28 @@
                 <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                 <div class="container">
                     <div class="row height d-flex justify-content-center align-items-center">
-                        <div class="col-md-7">
-                            <div class="input-group mb-3">
-                                <!-- <i class="fa fa-search"></i> -->
+                        <div>
+                            <div class="input-group mt-5 mb-5">
 
                                 <form method="POST" action="/">
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" name="keyword"
-                                            placeholder="Search your interest...">
-                                        <button type="button" class="btn btn-secondary">Add</button>
-                                    </div>
-                                </form>
+                                    <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-warning">
+                                        {% if err_message %}
+                                        {{ err_message }}</span class="float-left">
+                                    {% else %}
+                                    <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-success">
+                                        all good
+                                    </span>
+                                        {% endif %}
 
-                                <h3> Keywords </h3>
-                                {% if err_message %}
-                                {{ err_message }}
-                                {% endif %}
+                                        <div class="input-group">
+
+                                            <input class="form-control" type="text" name="keyword"
+                                                placeholder="Search your interest...">
+                                            <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                                        </div>
+                                </form>
+                            </div>
+                                <h3 style="color:gray"> Keywords </h3>
 
                                 {% if keywords %}
                                 {% for keyword in keywords %}
@@ -50,11 +57,10 @@
                                 <form method="POST" action="./delete">
                                     <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
                                     <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                    <input type="submit" class="btn btn-success" value={{keyword.word}}>
+                                    <input type="submit" class="btn btn-primary" value={{keyword.word}}>
                                 </form>
                                 {% endfor %}
                                 {% endif %}
-                            </div>
                         </div>
                     </div>
                 </div>
