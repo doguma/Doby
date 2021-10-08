@@ -43,7 +43,7 @@ def index():
             print("Failed to add keyword")
             print(e)
 
-    return render_template("index.html", google_html = res, today = today, keywords = keywords)
+    return render_template("index.html", trending_articles = res, today = today, keywords = keywords)
 
 
 @app.route("/update", methods=["POST"])
@@ -62,7 +62,7 @@ def update():
     except Exception as e:
         message = "Couldn't update keywords"
         print(e)
-    return redirect(request.referrer, err_message = message)
+    return render_template("index.html", err_message = message)
 
 
 @app.route("/delete", methods=["POST"])
@@ -71,7 +71,7 @@ def delete():
     word = Word.query.filter_by(word=selected).first()
     db.session.delete(word)
     db.session.commit()
-    return redirect(request.referrer)
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

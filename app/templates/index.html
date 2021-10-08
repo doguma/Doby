@@ -43,7 +43,7 @@
                                 {{ err_message }}
                                 {% if keywords %}
                                 {% for keyword in keywords %}
-                                <p>{{keyword.word}}</p>
+                                <button type="button" class="btn btn-success">{{keyword.word}}</button>
 
                                 <form method="POST" action="./update">
                                     <div class="input-group">
@@ -75,7 +75,7 @@
             </div>
             <div class="container d-md-flex flex-md-equal mw-95 text-light">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-                    {% for item in google_html %}
+                    {% for item in trending_articles %}
                     <div class="card col bg-dark pt-5 px-5">
                         <div class="card-title p-3">
                             <h6 small>{{ item.title }}</h6>
