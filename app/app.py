@@ -11,7 +11,10 @@ from app.selenium_proc import search, trending
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL?sslmode=require').replace('postgres://', 'postgresql://')
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+
+
 db = SQLAlchemy(app)
 
 class Word(db.Model):
