@@ -30,38 +30,43 @@
                         <div>
                             <div class="input-group mt-5 mb-5">
 
-                                <form method="POST" action="./add">
 
-                                    {% if err_message %}
-                                    <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-warning">
+
+                                {% if err_message %}
+                                <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-warning">
                                     {{ err_message }}
-                                    </span>
-                                    {% else %}
-                                    <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-success">
-                                        all good
-                                    </span>
-                                    {% endif %}
+                                </span>
+                                {% else %}
+                                <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-success">
+                                    all good
+                                </span>
+                                {% endif %}
 
-                                    <div class="input-group">
-
+                                <div class="input-group">
+                                    <form method="POST" action="./add">
                                         <input class="form-control" type="text" name="keyword"
                                             placeholder="Search your interest...">
-                                        <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </form>
+                                        <button class="btn btn-secondary"><i class="fa fa-pencil"></i></button>
+                                    </form>
+                                </div>
+
                             </div>
-                            <h3 style="color:gray"> Keywords </h3>
-
-                            {% if keywords %}
-                            {% for keyword in keywords %}
-
-                            <form method="POST" action="./delete">
-                                <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
-                                <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                <input type="submit" class="btn btn-primary" value={{keyword.word}}>
-                            </form>
-                            {% endfor %}
-                            {% endif %}
+                            <div class="jumbotron jumbotron-fluid">
+                                <h3 class="mb-3"> Keywords </h3>
+                                <p class="lead"> Click the magnifying glass to search with your keywords</p>
+                                {% if keywords %}
+                                {% for keyword in keywords %}
+                                <div class="container flex">
+                                    <form method="POST" action="./delete">
+                                        <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
+                                        <input type="hidden" value="{{keyword.word}}" name="keyword">
+                                        <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
+                                    </form>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                                <button class="btn btn-dark btn-lg"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
