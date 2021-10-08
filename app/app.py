@@ -1,7 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
-import time, os
+import json
+import time, os, sys
 import psycopg2
 
 from app.selenium_proc import search, trending
@@ -9,19 +11,60 @@ from app.selenium_proc import search, trending
 app = Flask(__name__)
 
 
-# DATABASE_URL = os.environ['postgres://lwtngwvvvflocb:19903cd3c1362eb18aadd3dc9225827123278ca939e0df869d7852c8241bc909@ec2-44-196-8-220.compute-1.amazonaws.com:5432/dd340sme9uu5or']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+db = SQLAlchemy(app)
 
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+class Word(db.Model):
+    word = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
+
+    def __repr__(self):
+        return "<Keyword: {}>".format(self.word)
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-
     res = trending()
     today = date.today()
     today = today.strftime("%b %d, %Y")
-    return render_template("index.html", google_html = res, today = today)
+    
+    keywords = None
+
+    if request.form:
+        try:
+            keyword = Word(word=request.form.get("keyword"))
+            db.session.add(keyword)
+            db.session.commit()
+        except Exception as e:
+            print("Failed to add keyword")
+            print(e)
+
+        keywords = Word.query.all()
+
+    return render_template("index.html", google_html = res, today = today, keywords = keywords)
+
+
+@app.route("/update", methods=["POST"])
+def update():
+    try:
+        newword = request.form.get("newkeyword")
+        oldword = request.form.get("oldkeyword")
+        book = Word.query.filter_by(title=oldword).first()
+        book.title = newword
+        db.session.commit()
+    except Exception as e:
+        print("Couldn't update keywords")
+        print(e)
+    return redirect("/")
+
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    title = request.form.get("title")
+    word = Word.query.filter_by(title=title).first()
+    db.session.delete(word)
+    db.session.commit()
+    return redirect("/")
+
 
 if __name__ == "__main__":
-
     app.run(debug=True)
