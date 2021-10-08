@@ -41,9 +41,9 @@ def index():
 @app.route("/add", methods=["GET", "POST"])
 def add():
     if request.form:
-        new_word=request.form.get("keyword")
+        new_word=str(request.form.get("keyword"))
 
-        if len(new_word) < 1:
+        if len(new_word) < 2:
             message = "type valid keyword"
         elif Word.query.filter_by(word=new_word).first():
             message = "duplicate keyword"

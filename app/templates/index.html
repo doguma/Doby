@@ -31,35 +31,37 @@
                             <div class="input-group mt-5 mb-5">
 
                                 <form method="POST" action="./add">
+
+                                    {% if err_message %}
                                     <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-warning">
-                                        {% if err_message %}
-                                        {{ err_message }}</span class="float-left">
+                                    {{ err_message }}
+                                    </span>
                                     {% else %}
                                     <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-success">
                                         all good
                                     </span>
-                                        {% endif %}
+                                    {% endif %}
 
-                                        <div class="input-group">
+                                    <div class="input-group">
 
-                                            <input class="form-control" type="text" name="keyword"
-                                                placeholder="Search your interest...">
-                                            <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                                        </div>
+                                        <input class="form-control" type="text" name="keyword"
+                                            placeholder="Search your interest...">
+                                        <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                                    </div>
                                 </form>
                             </div>
-                                <h3 style="color:gray"> Keywords </h3>
+                            <h3 style="color:gray"> Keywords </h3>
 
-                                {% if keywords %}
-                                {% for keyword in keywords %}
+                            {% if keywords %}
+                            {% for keyword in keywords %}
 
-                                <form method="POST" action="./delete">
-                                    <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
-                                    <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                    <input type="submit" class="btn btn-primary" value={{keyword.word}}>
-                                </form>
-                                {% endfor %}
-                                {% endif %}
+                            <form method="POST" action="./delete">
+                                <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
+                                <input type="hidden" value="{{keyword.word}}" name="keyword">
+                                <input type="submit" class="btn btn-primary" value={{keyword.word}}>
+                            </form>
+                            {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
