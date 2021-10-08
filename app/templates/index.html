@@ -51,12 +51,12 @@
                             <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords</p>
                             {% if keywords %}
                             {% for keyword in keywords %}
-                            <span class="button-box col-lg-12" style="text-align:center; margin-top:20px;">
+                            <div class="button-box" style="text-align:center; margin-top:20px;">
                                 <form class="flex" method="POST" action="./delete">
                                     <input type="hidden" value="{{keyword.word}}" name="keyword">
                                     <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
                                 </form>
-                            </span>
+                            </div>
                             {% endfor %}
                             {% endif %}
                             <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>

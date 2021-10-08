@@ -31,8 +31,7 @@ today = date.today().strftime("%b %d, %Y")
 message = ''
 
 @app.route('/')
-def index():
-
+def index(message):
     
     keywords = Word.query.all()
 
