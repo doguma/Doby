@@ -52,8 +52,8 @@ def update():
     try:
         newword = request.form.get("newkeyword")
         oldword = request.form.get("oldkeyword")
-        book = Word.query.filter_by(word=oldword).first()
-        book.title = newword
+        keyword = Word.query.filter_by(word=oldword).first()
+        keyword.word = newword
         db.session.commit()
     except Exception as e:
         print("Couldn't update keywords")
@@ -63,8 +63,8 @@ def update():
 
 @app.route("/delete", methods=["POST"])
 def delete():
-    title = request.form.get("title")
-    word = Word.query.filter_by(title=title).first()
+    selected = request.form.get("keyword")
+    word = Word.query.filter_by(word=selected).first()
     db.session.delete(word)
     db.session.commit()
     return redirect("/")
