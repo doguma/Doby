@@ -37,6 +37,7 @@
                                 </form>
 
                                 <h3> Keywords </h3>
+                                {{ err_message }}
                                 {% if keywords %}
                                 {% for keyword in keywords %}
                                 <p>{{keyword.word}}</p>

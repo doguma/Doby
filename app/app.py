@@ -25,13 +25,13 @@ class Word(db.Model):
 
 db.create_all()
 
+res = trending()
+today = date.today().strftime("%b %d, %Y")
+
+keywords = Word.query.all()
+
 @app.route('/', methods=["GET", "POST"])
 def index():
-    res = trending()
-    today = date.today()
-    today = today.strftime("%b %d, %Y")
-    
-    keywords = None
 
     if request.form:
         try:
@@ -42,8 +42,6 @@ def index():
             print("Failed to add keyword")
             print(e)
 
-        keywords = Word.query.all()
-
     return render_template("index.html", google_html = res, today = today, keywords = keywords)
 
 
@@ -53,12 +51,16 @@ def update():
         newword = request.form.get("newkeyword")
         oldword = request.form.get("oldkeyword")
         keyword = Word.query.filter_by(word=oldword).first()
-        keyword.word = newword
+        if Word.query.filter_by(word=newword).first():
+            message = "duplicate keyword"
+        else:
+            keyword.word = newword
         db.session.commit()
+
     except Exception as e:
-        print("Couldn't update keywords")
+        message = "Couldn't update keywords"
         print(e)
-    return redirect("/")
+    return redirect("/", err_message = message)
 
 
 @app.route("/delete", methods=["POST"])
