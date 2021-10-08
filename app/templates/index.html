@@ -40,6 +40,7 @@
                                 </form>
 
                                 <h3> Keywords </h3>
+                                {% if keywords %}
                                 {% for keyword in keywords %}
                                 <p>{{keyword.word}}</p>
                                 <form method="POST" action="./update">
@@ -53,6 +54,7 @@
                                     <input type="submit" value="Delete">
                                   </form>
                                 {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
