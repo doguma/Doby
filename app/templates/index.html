@@ -29,11 +29,11 @@
                     <div class="row height d-flex justify-content-center align-items-center">
                     
                             {% if err_message %}
-                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-warning align-middle" style="margin-top: -0.5em;"> 
+                            <span class="pt-1 mt-2 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle" style="margin-top: -0.5em;"> 
                             {{ err_message }}
                             </span>
                             {% else %}
-                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
+                            <span class="pt-1 mt-2 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                                 all good
                             </span>
                             {% endif %}
@@ -50,7 +50,7 @@
                             <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords</p>
                             {% if keywords %}
                             {% for keyword in keywords %}
-                            <div class="container md-flex flex-md-equal">
+                            <div class="button-box col-lg-12" style="text-align:center; margin-top:20px;">
                                 <form class="flex" method="POST" action="./delete">
                                     <input type="hidden" value="{{keyword.word}}" name="keyword">
                                     <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
@@ -58,7 +58,7 @@
                             </div>
                             {% endfor %}
                             {% endif %}
-                            <button class="btn btn-dark btn-lg"><i class="fa fa-search"></i></button>
+                            <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
