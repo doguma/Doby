@@ -29,11 +29,11 @@
                     <div class="row height d-flex justify-content-center align-items-center">
                     
                             {% if err_message %}
-                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-warning align-middle"> 
-                                {{ err_message }}
+                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-warning align-middle" style="margin-top: -0.5em;"> 
+                            {{ err_message }}
                             </span>
                             {% else %}
-                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-success">
+                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                                 all good
                             </span>
                             {% endif %}
@@ -45,14 +45,13 @@
                             </form>
                         </div>
 
-                        <div class="jumbotron jumbotron-fluid">
+                        <div class="jumbotron jumbotron-fluid ">
                             <h3 class="mb-3"> Keywords </h3>
-                            <p class="lead"> Click the magnifying glass to search with your keywords</p>
+                            <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords</p>
                             {% if keywords %}
                             {% for keyword in keywords %}
-                            <div class="container flex">
-                                <form method="POST" action="./delete">
-                                    <!-- <button type="button" class="btn btn-success">{{keyword.word}}</button> -->
+                            <div class="container md-flex flex-md-equal">
+                                <form class="flex" method="POST" action="./delete">
                                     <input type="hidden" value="{{keyword.word}}" name="keyword">
                                     <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
                                 </form>
