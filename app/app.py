@@ -40,6 +40,7 @@ def index():
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
+    message = ''
     if request.form:
         new_word = request.form.get("keyword")
 
