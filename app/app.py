@@ -28,11 +28,12 @@ db.create_all()
 res = trending()
 today = date.today().strftime("%b %d, %Y")
 
+message = ''
 
 @app.route('/')
 def index():
 
-    message = ''
+    
     keywords = Word.query.all()
 
     return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
@@ -52,6 +53,7 @@ def add():
             new_keyword = Word(word=new_word)
             db.session.add(new_keyword)
             db.session.commit()
+            message = ''
 
             # keywords = Word.query.all()
 
