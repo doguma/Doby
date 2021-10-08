@@ -44,9 +44,9 @@ def add():
     if request.form:
         new_word = request.form.get("keyword")
 
-        # if len(new_word) < 2:
-        #     message = "type valid keyword"
-        if Word.query.filter_by(word=new_word).first():
+        if len(str(new_word)) < 2:
+            message = "type valid keyword"
+        elif Word.query.filter_by(word=new_word).first():
             message = "duplicate keyword"
         else:
             new_keyword = Word(word=new_word)

@@ -27,17 +27,16 @@
                 <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                 <div class="container">
                     <div class="row height d-flex justify-content-center align-items-center">
-
-                        {% if err_message %}
-                        <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-warning">
-                            {{ err_message }}
-                        </span>
-                        {% else %}
-                        <span class="pt-1 mt-2 pb-1 mb-2 badge badge-pill badge-success">
-                            all good
-                        </span>
-                        {% endif %}
-
+                    
+                            {% if err_message %}
+                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-warning align-middle"> 
+                                {{ err_message }}
+                            </span>
+                            {% else %}
+                            <span class="pt-1 mt-2 pb-1 mb-2 mr-3 badge badge-pill badge-success">
+                                all good
+                            </span>
+                            {% endif %}
                         <div class="mt-5 mb-5">
                             <form class="form-inline" method="POST" action="./add">
                                 <input class="form-control mr-3" type="text" name="keyword"
