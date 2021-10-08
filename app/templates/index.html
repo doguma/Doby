@@ -43,8 +43,7 @@
                         all good
                     </span>
                     {% endif %} -->
-                        <div class="row justify-content-center align-items-center mb-5"
-                            style="text-align: center;">
+                        <div class="row justify-content-center align-items-center mb-5" style="text-align: center;">
                             <form class="form-inline" method="POST" action="./add">
                                 <input class="form-control-sm mr-2" type="text" name="keyword"
                                     placeholder="Type in keyword...">
@@ -53,69 +52,72 @@
                         </div>
                         <div class="row height justify-content-center align-items-center">
                             <div class="jumbotron jumbotron-fluid mt-5">
-                                <h3 class="mb-3"> Keywords </h3>
-                                <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords
-                                </p>
-                                {% if keywords %}
-                                {% for keyword in keywords %}
-                                <div class="row justify-content-center" style="text-align:center; margin-top:20px;">
-                                    <form class="form-inline" method="POST" action="./delete">
-                                        <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                        <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
-                                    </form>
-                                </div>
                                 <div>
+                                    <h3 class="mb-3"> Keywords </h3>
+                                    <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your
+                                        keywords
+                                    </p>
+                                    {% if keywords %}
+                                    {% for keyword in keywords %}
+                                    <div class="row justify-content-center" style="text-align:center; margin-top:20px;">
+                                        <form class="form-inline" method="POST" action="./delete">
+                                            <input type="hidden" value="{{keyword.word}}" name="keyword">
+                                            <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
+                                        </form>
+                                    </div>
                                     {% endfor %}
                                     {% endif %}
+                                    <div>
+                                        <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
+
+                                    </div>
                                 </div>
-                                <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- <div class="product-device shadow-sm d-none d-md-block"></div>
+                    <!-- <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div> -->
-        </div>
+                </div>
 
-        <div class="position-relative bg-dark text-center text-light pt-5">
-            <div class="pt-5">
-                <h2>Trending Articles on PubMed</h2>
-                <p> PubMed records with recent increases in activity <br />- <b> {{today}}</b></p>
-            </div>
-            <div class="container d-md-flex flex-md-equal mw-95 text-light mb-3">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-2">
-                    {% for item in trending_articles %}
-                    <div class="card col bg-dark pt-5 px-5">
-                        <div class="card-title p-3">
-                            <h6 small>{{ item.title }}</h6>
-                            <div style="color:rgb(255, 236, 160); font-size: 70%">
-                                <em>{{item.authors}}</em>
-                            </div>
-                            <div class="card-text pt-3">
-                                <p style="font-size: 80%">{{item.text}}</p>
+                <div class="position-relative bg-dark text-center text-light pt-5">
+                    <div class="pt-5">
+                        <h2>Trending Articles on PubMed</h2>
+                        <p> PubMed records with recent increases in activity <br />- <b> {{today}}</b></p>
+                    </div>
+                    <div class="container d-md-flex flex-md-equal mw-95 text-light mb-3">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-2">
+                            {% for item in trending_articles %}
+                            <div class="card col bg-dark pt-5 px-5">
+                                <div class="card-title p-3">
+                                    <h6 small>{{ item.title }}</h6>
+                                    <div style="color:rgb(255, 236, 160); font-size: 70%">
+                                        <em>{{item.authors}}</em>
+                                    </div>
+                                    <div class="card-text pt-3">
+                                        <p style="font-size: 80%">{{item.text}}</p>
 
+                                    </div>
+                                    <div style="font-size: 70%">
+                                        <a href="{{item.url}}">{{item.url}}</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="font-size: 70%">
-                                <a href="{{item.url}}">{{item.url}}</a>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
-        </div>
 
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 p-3">
-                    <h2 class="display-5">Dashboard</h2>
-                    <p class="lead">import google dashboard here?</p>
+                <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+                    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">Dashboard</h2>
+                            <p class="lead">import google dashboard here?</p>
+                        </div>
+                        <div class="bg-dark shadow-sm mx-auto"
+                            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer class="container py-5">
