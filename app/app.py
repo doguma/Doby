@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
@@ -62,18 +62,18 @@ def add():
         new_word = request.form.get("keyword")
 
         if len(str(new_word)) < 2:
-            message = "type valid keyword"
+            flash('type in valid keyword')
+            message = ""
         elif Word.query.filter_by(word=new_word).first():
-            message = "duplicate keyword"
+            flash('duplicate keyword')
         else:
             new_keyword = Word(word=new_word)
             db.session.add(new_keyword)
             db.session.commit()
-            message = ''
 
             # keywords = Word.query.all()
 
-    return redirect(url_for('.index', err_message=message))
+    return redirect(url_for('.index'))
 
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -86,14 +86,14 @@ def delete():
         return redirect(url_for('.index'))
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    if request.form:
-        selected = request.form.get("keyword")
-        word = Word.query.filter_by(word=selected).first()
-        db.session.delete(word)
-        db.session.commit()
-        return redirect(url_for('.index'))
+# @app.route("/search", methods=["GET", "POST"])
+# def search():
+#     if request.form:
+#         selected = request.form.get("keyword")
+#         word = Word.query.filter_by(word=selected).first()
+#         db.session.delete(word)
+#         db.session.commit()
+#         return redirect(url_for('.index'))
 
 
 if __name__ == "__main__":

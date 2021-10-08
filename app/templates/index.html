@@ -28,10 +28,12 @@
                     <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                     <div class="container-fluid">
                         <!-- {% if err_message %} -->
+                        {% for message in get_flashed_messages() %}
                         <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle"
                             style="margin-top: -0.5em;">
-                            {{ err_message }}
+                            {{ message }}
                         </span>
+                        {% endfor %}
                         <!-- {% else %}
                     <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                         all good
@@ -77,8 +79,8 @@
                 <h2>Trending Articles on PubMed</h2>
                 <p> PubMed records with recent increases in activity <br />- <b> {{today}}</b></p>
             </div>
-            <div class="container d-md-flex flex-md-equal mw-95 text-light">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="container d-md-flex flex-md-equal mw-95 text-light mb-3">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-2">
                     {% for item in trending_articles %}
                     <div class="card col bg-dark pt-5 px-5">
                         <div class="card-title p-3">
@@ -96,7 +98,7 @@
                         </div>
                     </div>
                     {% endfor %}
-                </div class="mb-5">
+                </div>
             </div>
         </div>
 
