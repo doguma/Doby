@@ -52,7 +52,7 @@ def add():
             db.session.add(new_keyword)
             db.session.commit()
 
-        keywords = Word.query.all()
+            # keywords = Word.query.all()
 
     return redirect(url_for('.index', err_message=message, keywords = keywords))
 
