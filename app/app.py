@@ -10,7 +10,6 @@ from app.selenium_proc import search, trending
 
 app = Flask(__name__)
 
-
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace('postgres://', 'postgresql://')
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -22,6 +21,24 @@ class Word(db.Model):
 
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
+
+class TrendyArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
+
+class SearchArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
 
 db.create_all()
 
@@ -61,6 +78,16 @@ def add():
 
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
+    if request.form:
+        selected = request.form.get("keyword")
+        word = Word.query.filter_by(word=selected).first()
+        db.session.delete(word)
+        db.session.commit()
+        return redirect(url_for('.index'))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
     if request.form:
         selected = request.form.get("keyword")
         word = Word.query.filter_by(word=selected).first()

@@ -21,51 +21,55 @@
     </header>
 
     <main>
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div class="col-md-9 p-lg-5 my-5">
-                <h1 class="display-4 fw-normal">Doby</h1>
-                <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
-                <div class="container-fluid">
-                    <!-- {% if err_message %} -->
-                    <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle" style="margin-top: -0.5em;"> 
-                    {{ err_message }}
-                    </span>
-                    <!-- {% else %}
+        <div class="position-relative bg-light text-center pt-5">
+            <div class="mw-95 text-dark">
+                <div class="my-5">
+                    <h1 class="display-4 fw-normal">Doby</h1>
+                    <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
+                    <div class="container-fluid">
+                        <!-- {% if err_message %} -->
+                        <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle"
+                            style="margin-top: -0.5em;">
+                            {{ err_message }}
+                        </span>
+                        <!-- {% else %}
                     <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                         all good
                     </span>
                     {% endif %} -->
-                <div class="row justify-content-center align-items-center mt-5 mb-5" style="text-align: center;">
-                    <form class="form-inline" method="POST" action="./add">
-                        <input class="form-control mr-3" type="text" name="keyword"
-                            placeholder="Search your interest...">
-                        <button class="form-control btn btn-outline-dark"><b>add</b></button>
-                    </form>
-                </div>
-                    <div class="row height justify-content-center align-items-center">
-                    
-
-
-                        <div class="jumbotron jumbotron-fluid mt-5">
-                            <h3 class="mb-3"> Keywords </h3>
-                            <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords</p>
-                            {% if keywords %}
-                            {% for keyword in keywords %}
-                            <div class="button-box" style="text-align:center; margin-top:20px;">
-                                <form class="flex" method="POST" action="./delete">
-                                    <input type="hidden" value="{{keyword.word}}" name="keyword">
-                                    <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
-                                </form>
+                        <div class="row justify-content-center align-items-center mb-5"
+                            style="text-align: center;">
+                            <form class="form-inline" method="POST" action="./add">
+                                <input class="form-control mr-3" type="text" name="keyword"
+                                    placeholder="Search your interest...">
+                                <button class="form-control btn btn-outline-dark"><b>add</b></button>
+                            </form>
+                        </div>
+                        <div class="row height justify-content-center align-items-center">
+                            <div class="jumbotron jumbotron-fluid mt-5">
+                                <h3 class="mb-3"> Keywords </h3>
+                                <p class="lead pt-3 px-5 pb-3"> Click the magnifying glass to search with your keywords
+                                </p>
+                                {% if keywords %}
+                                {% for keyword in keywords %}
+                                <div class="row justify-content-center" style="text-align:center; margin-top:20px;">
+                                    <form class="form-inline" method="POST" action="./delete">
+                                        <input type="hidden" value="{{keyword.word}}" name="keyword">
+                                        <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
+                                    </form>
+                                </div>
+                                <div>
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
                             </div>
-                            {% endfor %}
-                            {% endif %}
-                            <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="product-device shadow-sm d-none d-md-block"></div>
-            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+            <!-- <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div> -->
         </div>
 
         <div class="position-relative bg-dark text-center text-light pt-5">
