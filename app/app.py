@@ -45,8 +45,9 @@ db.create_all()
 db.session.query(TrendyArticle).delete()
 res = trending()
 for i in res:
-    new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
-    db.session.add(new_article)
+    if not Word.query.filter_by(pubmed_id=i['pubmed_id']).first():
+        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+        db.session.add(new_article)
 db.session.commit()
 today = date.today().strftime("%b %d, %Y")
 
