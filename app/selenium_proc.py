@@ -25,7 +25,7 @@ def trending():
     html = driver.page_source
 
     soup = BeautifulSoup(html, 'html.parser')
-    # time.sleep(1)
+    time.sleep(1)
 
     temp = []
     for ar in soup.find_all('article'):
