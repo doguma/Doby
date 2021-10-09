@@ -48,7 +48,7 @@ today = date.today().strftime("%b %d, %Y")
 
 message = ''
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
     message = ''
     if request.form:
