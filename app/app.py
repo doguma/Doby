@@ -26,27 +26,31 @@ class Word(db.Model):
 class TrendyArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     title = db.Column(db.String(300))
+    authors = db.Column(db.String(300))
     abstract = db.Column(db.String(5000))
+    url = db.Column(db.String(500))
 
     def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.abstract)
+        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.url)
 
 
 class SearchArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     title = db.Column(db.String(300))
+    authors = db.Column(db.String(300))
     abstract = db.Column(db.String(5000))
+    url = db.Column(db.String(500))
 
     def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.abstract)
+        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.url)
 
 db.create_all()
 
 db.session.query(TrendyArticle).delete()
 res = trending()
 for i in res:
-    if not TrendyArticle.query.filter_by(pubmed_id=i['pubmed_id']).first():
-        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+    if not TrendyArticle.query.filter_by(id=i['pubmed_id']).first():
+        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
         db.session.add(new_article)
 db.session.commit()
 today = date.today().strftime("%b %d, %Y")
