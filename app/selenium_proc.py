@@ -3,7 +3,7 @@ import os, time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-from app.app import db, TrendyArticle, SearchArticle 
+from app import db, TrendyArticle, SearchArticle 
 
 
 def start_chromedriver():
