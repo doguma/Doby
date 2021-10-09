@@ -27,24 +27,20 @@
                     <h1 class="display-4 fw-normal">Doby</h1>
                     <p class="lead fw-normal"> NLP analysis and visualization of scholarly articles</p>
                     <div class="container-fluid">
-                        <!-- {% if err_message %} -->
-                        {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                        {% for message in messages %}
-                        <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle"
+
+                        {% if err_message %}
+                        <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-info align-middle"
                             style="margin-top: -0.5em;">
-                            {{ message }}
+                            {{ err_message }}
                         </span>
-                        {% endfor %}
                         {% else %}
                         <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
                             all good
                         </span>
                         {% endif %}
                         {% endwith %}
-                        <!-- {% else %}
 
-                    {% endif %} -->
+                        
                         <div class="row justify-content-center align-items-center mb-5" style="text-align: center;">
                             <form class="form-inline" method="POST" action="./">
                                 <input class="form-control-sm mr-2" type="text" name="add_keyword"
@@ -61,7 +57,7 @@
                                     </p>
                                     {% if keywords %}
                                     {% for keyword in keywords %}
-                                    <div class="row justify-content-center" style="text-align:center; margin-top:20px;">
+                                    <div class="row justify-content-center mb-2" style="text-align:center;">
                                         <form class="form-inline" method="POST" action="./delete">
                                             <input type="hidden" value="{{keyword.word}}" name="delete_keyword">
                                             <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
@@ -75,7 +71,7 @@
                                     {% else %}
                                     <span class="pt-1 pb-1 mb-2 mr-3 mt-1 badge badge-pill badge-warning align-middle"
                                         style="margin-top: -0.5em;">
-                                        there's no keyword yet
+                                        there's no keyword
                                     </span>
                                     <div>
                                         <button class="btn btn-dark mt-4 btn-lg" disabled><i class="fa fa-search"></i></button>
