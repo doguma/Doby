@@ -3,6 +3,7 @@ import os, time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+from app import db, TrendyArticle, SearchArticle 
 
 
 def start_chromedriver():
@@ -38,6 +39,7 @@ def trending():
         temp_json['authors'] = return_author
 
         pubmed_id = str(ar.find('a').get('href'))
+        temp_json['pubmed_id'] = pubmed_id
         temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov' + pubmed_id
 
         driver.get(temp_json['url'])
@@ -51,6 +53,12 @@ def trending():
                 temp_json['text'] = return_text
 
                 temp.append(temp_json)
+        
+
+    for i in temp:
+        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+        db.session.add(new_article)
+    db.session.commit()
 
     driver.quit()
 
@@ -78,6 +86,11 @@ def search(keyword):
         temp_json['title'] = re.sub(r'\n', '', temp_str)
 
         temp.append(temp_json)
+
+    for i in temp:
+        new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+        db.session.add(new_article)
+    db.session.commit()
 
     driver.quit()
     
