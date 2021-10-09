@@ -7,7 +7,6 @@ import time, os, sys
 import psycopg2
 
 from app.selenium_proc import search, trending
-from app.wordcloud import createcloud
 
 app = Flask(__name__)
 
@@ -57,7 +56,6 @@ db.session.commit()
 today = date.today().strftime("%b %d, %Y")
 
 message = ''
-toggle = False
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -65,7 +63,7 @@ def index():
     if request.form:
         new_word = request.form.get("add_keyword")
 
-        if len(str(new_word).strip()) < 2:
+        if len(str(new_word)) < 2:
             message = "type in valid keyword"
         elif Word.query.filter_by(word=new_word).first():
             message = "duplicate keyword"
@@ -77,7 +75,7 @@ def index():
     articles = TrendyArticle.query.all()
     
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, toggle = toggle)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message)
 
 
 
@@ -91,20 +89,10 @@ def delete():
         return redirect(url_for('.index'))
 
 
-@app.route("/wordcloud_t", methods=["GET", "POST"])
-def wordcloud_t():
-    if request.form:
-        selected = request.form.get("wordcloud_t")
-        createcloud(res)
-        toggle = True
-
-        return redirect(url_for('.index', toggle=toggle))
-
-
 # @app.route("/search", methods=["GET", "POST"])
 # def search():
 #     if request.form:
-#         selected = request.form.get("search_keyword")
+#         selected = request.form.get("keyword")
 #         word = Word.query.filter_by(word=selected).first()
 #         db.session.delete(word)
 #         db.session.commit()

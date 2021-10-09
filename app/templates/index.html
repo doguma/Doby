@@ -96,7 +96,7 @@
                             {% for item in trending_articles %}
                             <div class="card col bg-dark pt-5 px-5">
                                 <div class="card-title p-3">
-                                    <p style="font-size:80%">Pubmed ID : {{item.id}}</p>
+                                    <p> {{item.id}}</p>
                                     <h6 small>{{ item.title }}</h6>
                                     <div style="color:rgb(255, 236, 160); font-size: 70%">
                                         <em>{{item.authors}}</em>
@@ -118,20 +118,11 @@
                 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                     <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
                         <div class="my-3 p-3">
-                            <h2 class="display-5">Word Cloud</h2>
-                            <p class="lead">Trending words on PubMed - based on the articles above</p>
+                            <h2 class="display-5">Dashboard</h2>
+                            <p class="lead">import google dashboard here?</p>
                         </div>
                         <div class="bg-dark shadow-sm mx-auto"
                             style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <div class="row justify-content-center mb-2" style="text-align:center;">
-                                <form class="form-inline" method="POST" action="./wordcloud_t">
-                                    <input type="hidden" value="create cloud" name="worldcloud_t">
-                                    <input type="submit" class="btn btn-primary btn-sm" value="create cloud">
-                                </form>
-                            </div>
-                            {% if toggle %}
-                            <img src={{/static/images/test_plot.png}} alt="Chart">
-                            {% endif %}
                         </div>
                     </div>
                 </div>
