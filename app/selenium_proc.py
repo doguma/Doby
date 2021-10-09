@@ -3,27 +3,7 @@ import os, time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-# from app import db
 
-
-# class TrendyArticle(db.Model):
-#     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
-#     title = db.Column(db.String(300))
-#     abstract = db.Column(db.String(5000))
-
-#     def __repr__(self):
-#         return "<Article: {}>".format(self.id, self.title, self.abstract)
-
-
-# class SearchArticle(db.Model):
-#     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
-#     title = db.Column(db.String(300))
-#     abstract = db.Column(db.String(5000))
-
-#     def __repr__(self):
-#         return "<Article: {}>".format(self.id, self.title, self.abstract)
-
-# db.create_all()
 
 def start_chromedriver():
     options = webdriver.ChromeOptions()
@@ -72,12 +52,7 @@ def trending():
                 temp_json['text'] = return_text
 
                 temp.append(temp_json)
-        
-
-    for i in temp:
-        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
-        db.session.add(new_article)
-    db.session.commit()
+    
 
     driver.quit()
 
@@ -106,10 +81,10 @@ def search(keyword):
 
         temp.append(temp_json)
 
-    for i in temp:
-        new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
-        db.session.add(new_article)
-    db.session.commit()
+    # for i in temp:
+    #     new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+    #     db.session.add(new_article)
+    # db.session.commit()
 
     driver.quit()
     

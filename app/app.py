@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
@@ -23,9 +23,30 @@ class Word(db.Model):
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
 
+class TrendyArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
+
+class SearchArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
 db.create_all()
 
 res = trending()
+for i in res:
+    new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
+    db.session.add(new_article)
+db.session.commit()
 today = date.today().strftime("%b %d, %Y")
 
 message = ''
@@ -45,9 +66,10 @@ def index():
             db.session.add(new_keyword)
             db.session.commit()
     keywords = Word.query.all()
+    articles = TrendyArticle.query.all()
     
 
-    return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message)
 
 
 
