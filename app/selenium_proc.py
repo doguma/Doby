@@ -3,8 +3,27 @@ import os, time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-from app import db, TrendyArticle, SearchArticle 
+from app import db
 
+
+class TrendyArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
+
+class SearchArticle(db.Model):
+    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
+    title = db.Column(db.String(300))
+    abstract = db.Column(db.String(5000))
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.id, self.title, self.abstract)
+
+db.create_all()
 
 def start_chromedriver():
     options = webdriver.ChromeOptions()

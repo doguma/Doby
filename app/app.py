@@ -23,24 +23,6 @@ class Word(db.Model):
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
 
-class TrendyArticle(db.Model):
-    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
-    title = db.Column(db.String(300))
-    abstract = db.Column(db.String(5000))
-
-    def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.abstract)
-
-
-class SearchArticle(db.Model):
-    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
-    title = db.Column(db.String(300))
-    abstract = db.Column(db.String(5000))
-
-    def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.abstract)
-
-
 db.create_all()
 
 res = trending()
