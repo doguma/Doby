@@ -6,7 +6,7 @@ import json
 import time, os, sys
 import psycopg2
 
-from selenium_proc import search, trending
+from app.selenium_proc import search, trending
 
 app = Flask(__name__)
 
