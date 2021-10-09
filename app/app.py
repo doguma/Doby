@@ -52,7 +52,7 @@ message = ''
 def index():
     message = ''
     if request.form:
-        new_word = request.form.get("keyword")
+        new_word = request.form.get("add_keyword")
 
         if len(str(new_word)) < 2:
             message = "type in valid keyword"
@@ -72,7 +72,7 @@ def index():
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
     if request.form:
-        selected = request.form.get("keyword")
+        selected = request.form.get("delete_keyword")
         word = Word.query.filter_by(word=selected).first()
         db.session.delete(word)
         db.session.commit()

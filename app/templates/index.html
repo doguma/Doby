@@ -46,8 +46,8 @@
 
                     {% endif %} -->
                         <div class="row justify-content-center align-items-center mb-5" style="text-align: center;">
-                            <form class="form-inline" method="POST" action="./add">
-                                <input class="form-control-sm mr-2" type="text" name="keyword"
+                            <form class="form-inline" method="POST" action="./">
+                                <input class="form-control-sm mr-2" type="text" name="add_keyword"
                                     placeholder="Type in keyword...">
                                 <button class="form-control-sm btn btn-outline-dark btn-sm"><b>add</b></button>
                             </form>
@@ -63,7 +63,7 @@
                                     {% for keyword in keywords %}
                                     <div class="row justify-content-center" style="text-align:center; margin-top:20px;">
                                         <form class="form-inline" method="POST" action="./delete">
-                                            <input type="hidden" value="{{keyword.word}}" name="keyword">
+                                            <input type="hidden" value="{{keyword.word}}" name="delete_keyword">
                                             <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
                                         </form>
                                     </div>
