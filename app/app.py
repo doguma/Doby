@@ -50,31 +50,23 @@ message = ''
 
 @app.route('/')
 def index():
-    
-    keywords = Word.query.all()
-
-    return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
-
-
-@app.route("/add", methods=["GET", "POST"])
-def add():
     message = ''
     if request.form:
         new_word = request.form.get("keyword")
 
         if len(str(new_word)) < 2:
-            flash('type in valid keyword')
-            message = ""
+            message = "type in valid keyword"
         elif Word.query.filter_by(word=new_word).first():
-            flash('duplicate keyword')
+            message = "duplicate keyword"
         else:
             new_keyword = Word(word=new_word)
             db.session.add(new_keyword)
             db.session.commit()
+    keywords = Word.query.all()
+    
 
-            # keywords = Word.query.all()
+    return render_template("index.html", trending_articles = res, today = today, keywords = keywords, err_message = message)
 
-    return redirect(url_for('.index'))
 
 
 @app.route("/delete", methods=["GET", "POST"])

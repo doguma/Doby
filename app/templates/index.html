@@ -36,12 +36,14 @@
                             {{ message }}
                         </span>
                         {% endfor %}
+                        {% else %}
+                        <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
+                            all good
+                        </span>
                         {% endif %}
                         {% endwith %}
                         <!-- {% else %}
-                    <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-success align-middle" style="margin-top: -0.5em;">
-                        all good
-                    </span>
+
                     {% endif %} -->
                         <div class="row justify-content-center align-items-center mb-5" style="text-align: center;">
                             <form class="form-inline" method="POST" action="./add">
@@ -66,11 +68,21 @@
                                         </form>
                                     </div>
                                     {% endfor %}
-                                    {% endif %}
                                     <div>
                                         <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
 
                                     </div>
+                                    {% else %}
+                                    <span class="pt-1 pb-1 mb-3 mr-3 badge badge-pill badge-warning align-middle"
+                                        style="margin-top: -0.5em;">
+                                        there's no keyword yet
+                                    </span>
+                                    <div>
+                                        <button class="btn btn-dark mt-4 btn-lg" disabled><i class="fa fa-search"></i></button>
+
+                                    </div>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>
