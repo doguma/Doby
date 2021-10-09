@@ -42,6 +42,7 @@ class SearchArticle(db.Model):
 
 db.create_all()
 
+db.session.query(TrendyArticle).delete()
 res = trending()
 for i in res:
     new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], abstract=i['text'])
