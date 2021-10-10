@@ -155,14 +155,14 @@ def delete():
 #         return redirect(url_for('.index', toggle=toggle, ngram1 = ngram1, ngram2 = ngram2, ngram3 = ngram3))
 
 
-# @app.route("/search", methods=["GET", "POST"])
-# def search():
-#     if request.form:
-#         selected = request.form.get("search_keyword")
-#         word = Word.query.filter_by(word=selected).first()
-#         db.session.delete(word)
-#         db.session.commit()
-#         return redirect(url_for('.index'))
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if request.form:
+        selected = request.form.get("search_keyword")
+        # word = Word.query.filter_by(word=selected).first()
+        # db.session.delete(word)
+        # db.session.commit()
+        return render_template("search.html")
 
 
 if __name__ == "__main__":
