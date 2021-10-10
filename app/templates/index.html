@@ -135,8 +135,8 @@
                         </div>
                         <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for i, j in enumerate(ngram2) %}
-                                <input type="button" class="btn btn-info btn-sm" value={{j}}>
+                                {% for i, j in ngram2 %}
+                                <input type="button" class="btn btn-info btn-sm" value={{''.join(j)}}>
                                 <div class="text-light">{{i}}</div>
                                 {% endfor %}
                             </div>
@@ -144,9 +144,9 @@
 
                         <div class="bg-dark shadow-sm mx-auto"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for i, j in enumerate(ngram3) %}
+                                {% for i, j in ngram3 %}
                                 <!-- <input type="hidden" value="create cloud" name="worldcloud_t"> -->
-                                <input type="button" class="btn btn-info btn-sm" value={{j}}>
+                                <input type="button" class="btn btn-info btn-sm" value={{''.join(j)}}>
                                 <div class="text-light">{{i}}</div>
                                 {% endfor %}
                             </div>
