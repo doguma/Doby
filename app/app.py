@@ -93,20 +93,17 @@ for i in res:
 
 ngram1_t, ngram2_t, ngram3_t = createcloud(res)
 
-for key, value in ngram1_t:
-    if not WordCloudT1.query.filter_by(word=key).first():
-        new_ngram1 = WordCloudT1(word=key, count=value)
-        db.session.add(new_ngram1)
+for key, value in ngram1_t.items():
+    new_ngram1 = WordCloudT1(word=key, count=value)
+    db.session.add(new_ngram1)
 
-for key, value in ngram2_t:
-    if not WordCloudT1.query.filter_by(word=key).first():
-        new_ngram2 = WordCloudT1(word=key, count=value)
-        db.session.add(new_ngram1)
+for key, value in ngram2_t.items():
+    new_ngram2 = WordCloudT1(word=key, count=value)
+    db.session.add(new_ngram2)
 
-for key, value in ngram3_t:
-    if not WordCloudT1.query.filter_by(word=key).first():
-        new_ngram3 = WordCloudT1(word=key, count=value)
-        db.session.add(new_ngram1)
+for key, value in ngram3_t.items():
+    new_ngram3 = WordCloudT1(word=key, count=value)
+    db.session.add(new_ngram3)
 
 db.session.commit()
 today = date.today().strftime("%b %d, %Y")
