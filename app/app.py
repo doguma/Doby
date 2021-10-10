@@ -91,7 +91,7 @@ for i in res:
         db.session.add(new_article)
 
 
-ngram1_t, ngram2_t, ngram3_t = createcloud()
+ngram1_t, ngram2_t, ngram3_t = createcloud(res)
 
 for key, value in ngram1_t:
     if not WordCloudT1.query.filter_by(word=i['key']).first():
