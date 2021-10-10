@@ -180,7 +180,7 @@ def search():
                 new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
                 db.session.add(new_article)
 
-        ngram1_s, ngram2_s, ngram3_s = createcloud_search(res2)
+        ngram1_s, ngram2_s, ngram3_s = createcloud_search(keywords, res2)
 
         for key, value in ngram1_s.items():
             if not WordCloudS1.query.filter_by(word=key).first():
