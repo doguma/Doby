@@ -118,61 +118,59 @@
                 </div>
 
                 <div class="position-relative p-3 bg-light mx-5">
-                    <!-- <div class="bg-light pt-3 px-3 px-md-5 text-center overflow-hidden"> -->
-                        <div class="p-3">
-                            <h2 class="display-5">Word Cloud</h2>
-                            <p class="lead">Trending words on PubMed - based on the articles above</p>
-                        </div>
-                        <div class="bg-dark shadow-sm mx-5 mt-5"
-                            style="border-radius: 21px 21px 0 0;">
+                    <div class="p-3">
+                        <h2 class="display-5">Word Cloud</h2>
+                        <p class="lead">Trending words on PubMed - based on the articles above</p>
+                    </div>
+                    <div class="bg-dark shadow-sm mx-5 mt-5" style="border-radius: 21px 21px 0 0;">
 
-                            <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                                <h4 class="text-light mt-2 mb-5">unigrams</h4>
-                                {% for key, value in ngram1.items() %}
-                                {% if value >= 3 %}
-                                <button type="button" class="btn btn-info btn-lg m-3">{{key}}  ({{value}})</button>
-                                {% elif value >= 2 %}
-                                <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
-                                {% else %}
-                                <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
+                        <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
+                            <h4 class="text-light mt-2 mb-5">unigrams</h4>
+                            {% for key, value in ngram1.items() %}
+                            {% if value >= 6 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
+                            {% elif value >= 5 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% else %}
+                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                        <div class="bg-light shadow-sm mx-5 mt-5"
-                            style="border-radius: 21px 21px 0 0;">
+                        <div class="m-3"></div>
+                    </div>
+                    <div class="bg-light shadow-sm mx-5 mt-5" style="border-radius: 21px 21px 0 0;">
 
-                            <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                                <h4 class="text-dark mt-2 mb-5">bigrams</h4>
-                                {% for key, value in ngram2.items() %}
-                                {% if value >= 3 %}
-                                <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                                {% elif value >= 2 %}
-                                <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
-                                {% else %}
-                                <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
+                        <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
+                            <h4 class="text-dark mt-2 mb-5">bigrams</h4>
+                            {% for key, value in ngram2.items() %}
+                            {% if value >= 3 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
+                            {% elif value >= 2 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% else %}
+                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            {% endif %}
+                            {% endfor %}
                         </div>
+                        <div class="m-3"></div>
+                    </div>
 
-                        <div class="bg-dark shadow-sm mx-5 mt-5"
-                            style="height: 300px; border-radius: 0 0 21px 21px ;">
+                    <div class="bg-dark shadow-sm mx-5 mt-5 mb-5" style="border-radius: 0 0 21px 21px ;">
 
-                            <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                                <h4 class="text-light mt-2 mb-5">trigrams</h4>
-                                {% for key, value in ngram3.items() %}
-                                {% if value >= 3 %}
-                                <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                                {% elif value >= 2 %}
-                                <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
-                                {% else %}
-                                <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
-                                {% endif %}
-                                {% endfor %}
-                            </div>
+                        <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
+                            <h4 class="text-light mt-2 mb-5">trigrams</h4>
+                            {% for key, value in ngram3.items() %}
+                            {% if value >= 3 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
+                            {% elif value >= 2 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% else %}
+                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                    <!-- </div> -->
+                        <div class="m-3"></div>
+                    </div>
                 </div>
     </main>
 
