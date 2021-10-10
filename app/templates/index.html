@@ -58,12 +58,12 @@
                                     {% if keywords %}
                                     {% for keyword in keywords %}
 
-                                    <!-- <div class="row justify-content-center mx-2 mb-1" style="text-align:center;"> -->
+                                    <div class="row justify-content-center mx-2 mb-1" style="text-align:center;">
                                         <form class="form-inline" method="POST" action="./delete">
-                                            <!-- <input type="hidden" value="{{keyword.word}}" name="delete_keyword"> -->
+                                            <input type="hidden" value="{{keyword.word}}" name="delete_keyword">
                                             <input type="submit" class="btn btn-primary btn-sm" value={{keyword.word}}>
                                         </form>
-                                    <!-- </div> -->
+                                    </div>
                                     {% endfor %}
                                     <div>
                                         <button class="btn btn-dark mt-4 btn-lg"><i class="fa fa-search"></i></button>
@@ -123,7 +123,7 @@
                         <h2 class="display-5">Word Cloud</h2>
                         <p class="lead">Trending words on PubMed - based on the articles above</p>
                     </div>
-                    <div class="bg-dark shadow-sm mx-5 mt-5" style="border-radius: 21px 21px 0 0;">
+                    <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h4 class="text-light mt-2 mb-5 lead">unigrams</h4>
                             {% for key, value in ngram1.items() %}
@@ -141,7 +141,7 @@
                         <div class="mb-5"></div>
                     </div>
 
-                    <div class="bg-light shadow-sm mx-5 mt-5" style="border-radius: 21px 21px 0 0;">
+                    <div class="bg-light shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h4 class="text-dark mt-2 mb-5 lead">bigrams</h4>
                             {% for key, value in ngram2.items() %}
@@ -159,7 +159,7 @@
                         <div class="mb-5"></div>
                     </div>
 
-                    <div class="bg-dark shadow-sm mx-5 mt-5 mb-5" style="border-radius: 0 0 21px 21px ;">
+                    <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 0 0 21px 21px ;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h4 class="text-light mt-2 mb-5 lead">trigrams</h4>
                             {% for key, value in ngram3.items() %}
