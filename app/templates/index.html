@@ -133,21 +133,21 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="bg-light shadow-sm mx-auto">
+                        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for key, value in ngram2.items() %}
-                                <input type="button" class="btn btn-info btn-sm" value={{key}}>
-                                <div class="text-light">{{value}}</div>
+                                {% for i, j in enumerate(ngram2) %}
+                                <input type="button" class="btn btn-info btn-sm" value={{j}}>
+                                <div class="text-light">{{i}}</div>
                                 {% endfor %}
                             </div>
                         </div>
 
-                        <div class="bg-dark shadow-sm mx-auto">
+                        <div class="bg-dark shadow-sm mx-auto"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for key, value in ngram3.items() %}
+                                {% for i, j in enumerate(ngram3) %}
                                 <!-- <input type="hidden" value="create cloud" name="worldcloud_t"> -->
-                                <input type="button" class="btn btn-info btn-sm" value={{key}}>
-                                <div class="text-light">{{value}}</div>
+                                <input type="button" class="btn btn-info btn-sm" value={{j}}>
+                                <div class="text-light">{{i}}</div>
                                 {% endfor %}
                             </div>
                         </div>
