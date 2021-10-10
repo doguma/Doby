@@ -19,7 +19,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 
 class Word(db.Model):
-    word = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
+    word = db.Column(db.String(80), nullable=False, primary_key=True)
 
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
