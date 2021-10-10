@@ -94,26 +94,25 @@ for i in res:
 ngram1_t, ngram2_t, ngram3_t = createcloud(res)
 
 for key, value in ngram1_t.items():
-    new_ngram1 = WordCloudT1(word=key, count=value)
-    db.session.add(new_ngram1)
+    if not WordCloudT1.query.filter_by(word=key).first():
+        new_ngram1 = WordCloudT1(word=key, count=value)
+        db.session.add(new_ngram1)
 
 for key, value in ngram2_t.items():
-    new_ngram2 = WordCloudT1(word=key, count=value)
-    db.session.add(new_ngram2)
+    if not WordCloudT2.query.filter_by(word=key).first():
+        new_ngram2 = WordCloudT2(word=key, count=value)
+        db.session.add(new_ngram2)
 
 for key, value in ngram3_t.items():
-    new_ngram3 = WordCloudT1(word=key, count=value)
-    db.session.add(new_ngram3)
+    if not WordCloudT3.query.filter_by(word=key).first():
+        new_ngram3 = WordCloudT3(word=key, count=value)
+        db.session.add(new_ngram3)
 
 db.session.commit()
 today = date.today().strftime("%b %d, %Y")
 
 message = ''
 toggle = False
-ngram1 = {}
-ngram2 = {}
-ngram3 = {}
-
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -134,7 +133,6 @@ def index():
     
 
     return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, toggle = toggle, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
-
 
 
 @app.route("/delete", methods=["GET", "POST"])
