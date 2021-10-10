@@ -148,7 +148,7 @@ def delete():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.form:
-        # selected = request.form.get("search_keyword")
+        request.form.get("search_keyword")
         keywords = Word.query.all()
         # word = Word.query.filter_by(word=selected).first()
         # db.session.delete(word)
