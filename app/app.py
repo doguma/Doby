@@ -96,10 +96,10 @@ def delete():
 def wordcloud_t():
     if request.form:
         selected = request.form.get("wordcloud_t")
-        createcloud(res)
+        ngram1, ngram2, ngram3 = createcloud(res)
         toggle = True
 
-        return redirect(url_for('.index', toggle=toggle))
+        return redirect(url_for('.index', toggle=toggle, ngram1 = ngram1, ngram2 = ngram2, ngram3 = ngram3))
 
 
 # @app.route("/search", methods=["GET", "POST"])
