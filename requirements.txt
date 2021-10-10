@@ -3,14 +3,15 @@ bs4==0.0.1
 certifi==2021.5.30
 click==8.0.2
 Flask==2.0.2
-greenlet @ file:///opt/concourse/worker/volumes/live/95ce977d-8383-4e59-44f1-32af4c61496e/volume/greenlet_1628888142951/work
-gunicorn @ file:///opt/concourse/worker/volumes/live/f958ac2d-63e5-4751-6df7-f751b636b35e/volume/gunicorn_1617120640046/work
+Flask-SQLAlchemy==2.5.1
+greenlet==1.1.2
+gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.2
 MarkupSafe==2.0.1
 psycopg2-binary==2.9.1
 selenium==3.141.0
 soupsieve==2.2.1
-SQLAlchemy @ file:///opt/concourse/worker/volumes/live/1e13d3f3-1ffe-4afe-44b7-b6a7e04ce7e9/volume/sqlalchemy_1626948435194/work
+SQLAlchemy==1.4.25
 urllib3==1.26.7
 Werkzeug==2.0.2
