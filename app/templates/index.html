@@ -117,57 +117,62 @@
                     </div>
                 </div>
 
-                <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                        <div class="my-3 p-3">
+                <div class="position-relative p-3 bg-light mx-5">
+                    <!-- <div class="bg-light pt-3 px-3 px-md-5 text-center overflow-hidden"> -->
+                        <div class="p-3">
                             <h2 class="display-5">Word Cloud</h2>
                             <p class="lead">Trending words on PubMed - based on the articles above</p>
                         </div>
-                        <div class="bg-dark shadow-sm mx-5"
-                            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <h4 class="text-light">unigram</h4>
-                            <div class="row justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                        <div class="bg-dark shadow-sm mx-5 mt-5"
+                            style="border-radius: 21px 21px 0 0;">
+
+                            <div class="justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                                <h4 class="text-light m-2">unigrams</h4>
                                 {% for key, value in ngram1.items() %}
                                 {% if value >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-lg m-3">{{key}}</button>
                                 {% elif value >= 2 %}
-                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-md m-3">{{key}}</button>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-sm m-3">{{key}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="bg-light shadow-sm mx-5 mt-5" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <h4>bigram</h4>
-                            <div class="row justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                        <div class="bg-light shadow-sm mx-5 mt-5"
+                            style="height: 300px; border-radius: 21px 21px 0 0;">
+
+                            <div class="justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                                <h4 class="text-dark m-2">bigrams</h4>
                                 {% for key, value in ngram2.items() %}
                                 {% if value >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-lg m-3">{{key}}</button>
                                 {% elif value >= 2 %}
-                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-md m-3">{{key}}</button>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-sm m-3">{{key}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
 
-                        <div class="bg-dark shadow-sm mx-5 mt-5"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <h4 class="text-light">trigram</h4>
-                            <div class="row justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                        <div class="bg-dark shadow-sm mx-5 mt-5"
+                            style="height: 300px; border-radius: 0 0 21px 21px ;">
+
+                            <div class="justify-content-center mx-3 mb-2 mt-2 pt-5" style="text-align:center;">
+                                <h4 class="text-light m-2">trigrams</h4>
                                 {% for key, value in ngram3.items() %}
                                 {% if value >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-lg m-3">{{key}}</button>
                                 {% elif value >= 2 %}
-                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-md m-3">{{key}}</button>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
+                                <button type="button" class="btn btn-info btn-sm m-3">{{key}}</button>
                                 {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
     </main>
 
