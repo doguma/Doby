@@ -123,44 +123,44 @@
                             <h2 class="display-5">Word Cloud</h2>
                             <p class="lead">Trending words on PubMed - based on the articles above</p>
                         </div>
-                        <div class="bg-dark shadow-sm mx-auto"
+                        <div class="bg-dark shadow-sm mx-5"
                             style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 
-                            <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
+                            <div class="row justify-content-center mx-3 mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for key, value in ngram1.items() %}
                                 {% if value >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg" value={{key}}>
-                                {% elif value >= 2}
-                                <input type="button" class="btn btn-info btn-md" value={{key}}>
+                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                {% elif value >= 2 %}
+                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm" value={{key}}>
+                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
                                 {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
+                        <div class="bg-light shadow-sm mx-5" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                            <div class="row justify-content-center mx-3 mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for i, j in ngram2 %}
                                 {% if i >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg" value={{' '.join(j)}}>
-                                {% elif i >= 2}
-                                <input type="button" class="btn btn-info btn-md" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-lg m-3" value={{' '.join(j)}}>
+                                {% elif i >= 2 %}
+                                <input type="button" class="btn btn-info btn-md m-3" value={{' '.join(j)}}>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-sm m-3" value={{' '.join(j)}}>
                                 {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
 
-                        <div class="bg-dark shadow-sm mx-auto"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-                            <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
+                        <div class="bg-dark shadow-sm mx-5"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                            <div class="row justify-content-center mx-3 mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for i, j in ngram3 %}
                                 {% if i >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg" value={{' '.join(j)}}>
-                                {% elif i >= 2}
-                                <input type="button" class="btn btn-info btn-md" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-lg m-3" value={{' '.join(j)}}>
+                                {% elif i >= 2 %}
+                                <input type="button" class="btn btn-info btn-md m-3" value={{' '.join(j)}}>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-sm m-3" value={{' '.join(j)}}>
                                 {% endif %}
                                 {% endfor %}
                             </div>
