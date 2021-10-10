@@ -7,6 +7,10 @@ from nltk.tokenize import word_tokenize
 from nltk import ngrams
 from collections import Counter
 
+
+blank_words = ['disease', 'background', 'reports', 'may', 'changes', 'report', 'suggested', 'exte', 'development']
+
+
 def createcloud(res):
     collection = ''
     for i in res:

@@ -128,16 +128,26 @@
 
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for key, value in ngram1.items() %}
+                                {% if value >= 3 %}
+                                <input type="button" class="btn btn-info btn-lg" value={{key}}>
+                                {% elif value >= 2}
+                                <input type="button" class="btn btn-info btn-md" value={{key}}>
+                                {% else %}
                                 <input type="button" class="btn btn-info btn-sm" value={{key}}>
-                                <div class="text-light">{{value}}</div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
                         <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for i, j in ngram2 %}
-                                <input type="button" class="btn btn-info btn-sm" value={{''.join(j)}}>
-                                <div class="text-light">{{i}}</div>
+                                {% if i >= 3 %}
+                                <input type="button" class="btn btn-info btn-lg" value={{' '.join(j)}}>
+                                {% elif i >= 2}
+                                <input type="button" class="btn btn-info btn-md" value={{' '.join(j)}}>
+                                {% else %}
+                                <input type="button" class="btn btn-info btn-sm" value={{' '.join(j)}}>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -145,9 +155,13 @@
                         <div class="bg-dark shadow-sm mx-auto"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for i, j in ngram3 %}
-                                <!-- <input type="hidden" value="create cloud" name="worldcloud_t"> -->
-                                <input type="button" class="btn btn-info btn-sm" value={{''.join(j)}}>
-                                <div class="text-light">{{i}}</div>
+                                {% if i >= 3 %}
+                                <input type="button" class="btn btn-info btn-lg" value={{' '.join(j)}}>
+                                {% elif i >= 2}
+                                <input type="button" class="btn btn-info btn-md" value={{' '.join(j)}}>
+                                {% else %}
+                                <input type="button" class="btn btn-info btn-sm" value={{' '.join(j)}}>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
