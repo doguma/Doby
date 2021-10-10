@@ -145,24 +145,15 @@ def delete():
         return redirect(url_for('.index'))
 
 
-# @app.route("/wordcloud_t", methods=["GET", "POST"])
-# def wordcloud_t():
-#     if request.form:
-#         selected = request.form.get("wordcloud_t")
-#         ngram1, ngram2, ngram3 = createcloud(res)
-#         toggle = True
-
-#         return redirect(url_for('.index', toggle=toggle, ngram1 = ngram1, ngram2 = ngram2, ngram3 = ngram3))
-
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.form:
-        selected = request.form.get("search_keyword")
+        # selected = request.form.get("search_keyword")
+        keywords = Word.query.all()
         # word = Word.query.filter_by(word=selected).first()
         # db.session.delete(word)
         # db.session.commit()
-        return render_template("search.html")
+        return render_template("search.html", keywords = keywords)
 
 
 if __name__ == "__main__":
