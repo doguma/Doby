@@ -67,21 +67,35 @@ class WordCloudT3(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)                
 
-class WordCloudS(db.Model):
+class WordCloudS1(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
 
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)
 
+
+class WordCloudS2(db.Model):
+    word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
+    count = db.Column(db.Integer)
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.word, self.count)
+
+class WordCloudS3(db.Model):
+    word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
+    count = db.Column(db.Integer)
+
+    def __repr__(self):
+        return "<Article: {}>".format(self.word, self.count)
+
+
 db.create_all()
 
 db.session.query(TrendyArticle).delete()
-db.session.query(SearchArticle).delete()
 db.session.query(WordCloudT1).delete()
 db.session.query(WordCloudT2).delete()
 db.session.query(WordCloudT3).delete()
-db.session.query(WordCloudS).delete()
 
 
 res = trending()
@@ -132,7 +146,7 @@ def index():
     articles = TrendyArticle.query.all()
     
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, toggle = toggle, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
 
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -150,10 +164,44 @@ def search():
     if request.form:
         request.form.get("search_keyword")
         keywords = Word.query.all()
-        # word = Word.query.filter_by(word=selected).first()
-        # db.session.delete(word)
-        # db.session.commit()
-        return render_template("search.html", keywords = keywords)
+
+        temp_string = ''
+        for i in keywords:
+            temp_string = ' ' + i['word']
+        
+        db.session.query(SearchArticle).delete()
+        db.session.query(WordCloudS1).delete()
+        db.session.query(WordCloudS2).delete()
+        db.session.query(WordCloudS3).delete()
+
+        res2 = search(temp_string)
+        for i in res2:
+            if not SearchArticle.query.filter_by(id=i['pubmed_id']).first():
+                new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
+                db.session.add(new_article)
+
+        ngram1_s, ngram2_s, ngram3_s = createcloud(res2)
+
+        for key, value in ngram1_s.items():
+            if not WordCloudS1.query.filter_by(word=key).first():
+                new_ngram1 = WordCloudS1(word=key, count=value)
+                db.session.add(new_ngram1)
+
+        for key, value in ngram2_s.items():
+            if not WordCloudS2.query.filter_by(word=key).first():
+                new_ngram2 = WordCloudS2(word=key, count=value)
+                db.session.add(new_ngram2)
+
+        for key, value in ngram3_s.items():
+            if not WordCloudS3.query.filter_by(word=key).first():
+                new_ngram3 = WordCloudS3(word=key, count=value)
+                db.session.add(new_ngram3)
+
+        db.session.commit()
+
+        articles = SearchArticle.query.all()
+
+        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s)
 
 
 if __name__ == "__main__":
