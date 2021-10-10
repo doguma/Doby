@@ -53,15 +53,14 @@
 
                     
                 </div>
-<!-- 
+
                 <div class="position-relative bg-dark text-center text-light pt-5 mb-5 pb-5">
                     <div class="pt-5 mb-5 pb-3">
-                        <h2>Trending Articles on PubMed</h2>
-                        <p> PubMed records with recent increases in activity <br />- <b> {{today}}</b></p>
+                        <h2>Articles based on Searched Keywords</h2>
                     </div>
                     <div class="container d-md-flex flex-md-equal mw-95 text-light mb-3">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-2">
-                            {% for item in trending_articles %}
+                            {% for item in search_articles %}
                             <div class="card col bg-dark pt-5 px-5 pb-3">
                                 <div class="card-title p-3">
                                     <p style="font-size:80%"> PubMed ID : {{item.id}}</p>
@@ -81,15 +80,15 @@
                             {% endfor %}
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="position-relative p-3 bg-light mx-5">
                     <div class="p-3">
                         <h2 class="display-5">Word Cloud</h2>
-                        <p class="lead">Trending words on PubMed - based on the articles above</p>
+                        <p class="lead">Unigram, bigram and trigram frequency based on the searched keywords</p>
                     </div>
                     <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
-                        <!-- <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
+                        <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-light mt-5 mb-5">unigrams</h3>
                             {% for key, value in ngram1.items() %}
 
@@ -101,12 +100,12 @@
                             <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
                             {% endif %}
                             {% endfor %}
-                        </div> -->
+                        </div>
                         <div class="mb-5"></div>
                         <div class="mb-5"></div>
                     </div>
 
-                    <!-- <div class="bg-light shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
+                    <div class="bg-light shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-dark mt-5 mb-5 ">bigrams</h3>
                             {% for key, value in ngram2.items() %}
@@ -122,9 +121,9 @@
                         </div>
                         <div class="mb-5"></div>
                         <div class="mb-5"></div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 0 0 21px 21px ;">
+                    <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 0 0 21px 21px ;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-light mt-5 mb-5 ">trigrams</h3>
                             {% for key, value in ngram3.items() %}
@@ -140,7 +139,7 @@
                         </div>
                         <div class="mb-5"></div>
                         <div class="mb-5"></div>
-                    </div> -->
+                    </div>
                 </div>
     </main>
 

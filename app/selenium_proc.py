@@ -76,10 +76,27 @@ def search(keyword):
     for ar in soup.find_all('article'):
         temp_json = {}
 
-        temp_str = ar.select_one('.docsum-title').get_text().strip("\n")
-        temp_json['title'] = re.sub(r'\n', '', temp_str)
+        temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
 
-        temp.append(temp_json)
+        temp_author = remove_space(ar.select_one('.docsum-citation').get_text())
+        return_author = (temp_author[:30] + '..') if len(temp_author)>30 else ''
+        temp_json['authors'] = return_author
+
+        pubmed_id = str(ar.find('a').get('href'))
+        temp_json['pubmed_id'] = re.sub("/", "", pubmed_id)
+        temp_json['url'] = 'https://pubmed.ncbi.nlm.nih.gov' + pubmed_id
+
+        driver.get(temp_json['url'])
+        temp_html = driver.page_source
+        temp_soup = BeautifulSoup(temp_html, 'html.parser')
+        temp_str = temp_soup.find('div', id='enc-abstract')
+        if temp_str:
+            temp_str = temp_str.get_text()
+            if len(temp_str)> 300 and len(temp_author) > 25:
+                return_text = temp_str[:300] + '..'
+                temp_json['text'] = return_text
+
+                temp.append(temp_json)
 
     driver.quit()
     
