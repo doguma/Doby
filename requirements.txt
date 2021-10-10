@@ -8,11 +8,15 @@ greenlet==1.1.2
 gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.2
+joblib==1.1.0
 MarkupSafe==2.0.1
+nltk==3.6.3
 numpy==1.21.2
 psycopg2-binary==2.9.1
+regex==2021.10.8
 selenium==3.141.0
 soupsieve==2.2.1
 SQLAlchemy==1.4.25
+tqdm==4.62.3
 urllib3==1.26.7
 Werkzeug==2.0.2
