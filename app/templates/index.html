@@ -141,13 +141,13 @@
                         <div class="bg-light shadow-sm mx-5" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <h4>bigram</h4>
                             <div class="row justify-content-center mx-3 mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for i, j in ngram2 %}
-                                {% if i >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg m-3" value={{' '.join(j)}}>
-                                {% elif i >= 2 %}
-                                <input type="button" class="btn btn-info btn-md m-3" value={{' '.join(j)}}>
+                                {% for key, value in ngram2.items() %}
+                                {% if value >= 3 %}
+                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                {% elif value >= 2 %}
+                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm m-3" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
                                 {% endif %}
                                 {% endfor %}
                             </div>
@@ -156,13 +156,13 @@
                         <div class="bg-dark shadow-sm mx-5"  style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
                             <h4>trigram</h4>
                             <div class="row justify-content-center mx-3 mb-2 mt-5 pt-5" style="text-align:center;">
-                                {% for i, j in ngram3 %}
-                                {% if i >= 3 %}
-                                <input type="button" class="btn btn-info btn-lg m-3" value={{' '.join(j)}}>
-                                {% elif i >= 2 %}
-                                <input type="button" class="btn btn-info btn-md m-3" value={{' '.join(j)}}>
+                                {% for key, value in ngram3 %}
+                                {% if value >= 3 %}
+                                <input type="button" class="btn btn-info btn-lg m-3" value={{key}}>
+                                {% elif value >= 2 %}
+                                <input type="button" class="btn btn-info btn-md m-3" value={{key}}>
                                 {% else %}
-                                <input type="button" class="btn btn-info btn-sm m-3" value={{' '.join(j)}}>
+                                <input type="button" class="btn btn-info btn-sm m-3" value={{key}}>
                                 {% endif %}
                                 {% endfor %}
                             </div>
