@@ -125,7 +125,7 @@
                     </div>
                     <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                            <h4 class="text-light mt-2 mb-5 lead">unigrams</h4>
+                            <h3 class="text-light mt-5 mb-5">unigrams</h3>
                             {% for key, value in ngram1.items() %}
 
                             {% if value >= 6 %}
@@ -143,7 +143,7 @@
 
                     <div class="bg-light shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                            <h4 class="text-dark mt-2 mb-5 lead">bigrams</h4>
+                            <h3 class="text-dark mt-5 mb-5 ">bigrams</h3>
                             {% for key, value in ngram2.items() %}
 
                             {% if value >= 3 %}
@@ -161,7 +161,7 @@
 
                     <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 0 0 21px 21px ;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
-                            <h4 class="text-light mt-2 mb-5 lead">trigrams</h4>
+                            <h3 class="text-light mt-5 mb-5 ">trigrams</h3>
                             {% for key, value in ngram3.items() %}
 
                             {% if value >= 3 %}
