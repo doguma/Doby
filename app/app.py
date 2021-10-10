@@ -6,7 +6,7 @@ import json
 import time, os, sys
 import psycopg2
 
-from app.selenium_proc import search, trending
+from app.selenium_proc import search_keyword, trending
 from app.wordcloud import createcloud
 
 app = Flask(__name__)
@@ -174,7 +174,7 @@ def search():
         db.session.query(WordCloudS2).delete()
         db.session.query(WordCloudS3).delete()
 
-        res2 = search(temp_string)
+        res2 = search_keyword(temp_string)
         for i in res2:
             if not SearchArticle.query.filter_by(id=i['pubmed_id']).first():
                 new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])

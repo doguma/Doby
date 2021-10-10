@@ -59,7 +59,7 @@ def trending():
     return temp
     
 
-def search(keyword):
+def search_keyword(keyword):
     driver = start_chromedriver()
     driver.get('https://pubmed.ncbi.nlm.nih.gov/')
 
