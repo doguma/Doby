@@ -58,7 +58,10 @@ today = date.today().strftime("%b %d, %Y")
 
 message = ''
 toggle = False
-test=''
+ngram1 = {}
+ngram2 = {}
+ngram3 = {}
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -78,7 +81,7 @@ def index():
     articles = TrendyArticle.query.all()
     
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, toggle = toggle)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, toggle = toggle, ngram1 = ngram1, ngram2 = ngram2, ngram3 = ngram3)
 
 
 
