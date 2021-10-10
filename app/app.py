@@ -167,7 +167,7 @@ def search():
 
         temp_string = ''
         for i in keywords:
-            temp_string = ' ' + i['word']
+            temp_string = ' ' + str(i)
         
         db.session.query(SearchArticle).delete()
         db.session.query(WordCloudS1).delete()
