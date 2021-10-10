@@ -203,8 +203,9 @@ def search():
 
         return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s)
 
+
 @app.route("/go-home", methods=["GET", "POST"])
-def delete():
+def gohome():
     if request.form:
         request.form.get("go-home")
 
