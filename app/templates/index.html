@@ -129,7 +129,7 @@
                             <div class="row justify-content-center mb-2 mt-5 pt-5" style="text-align:center;">
                                 {% for key, value in ngram1.items() %}
                                 <form class="form-inline" method="POST" action="./wordcloud_t">
-                                    <p style="font-size: {{value*10}}"> {{key}} </p>
+                                    <p > {{key}} </p> {{value}}
                                     <input type="hidden" value="create cloud" name="worldcloud_t">
                                     <input type="submit" class="btn btn-info btn-sm" value="create cloud">
                                 </form>
