@@ -46,7 +46,7 @@ def createcloud(res):
 
     trigrams = []
 
-    for i, j in counted_2:
+    for i, j in counted_3:
         temp2 = []
         temp2.append(' '.join(i))
         temp2.append(j)
