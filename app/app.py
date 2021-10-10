@@ -7,7 +7,7 @@ import time, os, sys
 import psycopg2
 
 from app.selenium_proc import search_keyword, trending
-from app.wordcloud import createcloud
+from app.wordcloud import createcloud_trendy, createcloud_search
 
 app = Flask(__name__)
 
@@ -105,7 +105,7 @@ for i in res:
         db.session.add(new_article)
 
 
-ngram1_t, ngram2_t, ngram3_t = createcloud(res)
+ngram1_t, ngram2_t, ngram3_t = createcloud_trendy(res)
 
 for key, value in ngram1_t.items():
     if not WordCloudT1.query.filter_by(word=key).first():
@@ -180,7 +180,7 @@ def search():
                 new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
                 db.session.add(new_article)
 
-        ngram1_s, ngram2_s, ngram3_s = createcloud(res2)
+        ngram1_s, ngram2_s, ngram3_s = createcloud_search(res2)
 
         for key, value in ngram1_s.items():
             if not WordCloudS1.query.filter_by(word=key).first():
