@@ -22,4 +22,4 @@ def createcloud(res):
     counted_2 = Counter(ngrams(total_tokens2, 2)).most_common()
     counted_3 = Counter(ngrams(total_tokens2, 3)).most_common()
 
-    return counted_1, counted_2, counted_3
+    return dict(counted_1), dict(counted_2), dict(counted_3)
