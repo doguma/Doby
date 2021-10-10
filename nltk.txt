@@ -1,3 +1,4 @@
 wordnet
 stopwords
 punkt
+pros_cons
