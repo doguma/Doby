@@ -58,6 +58,7 @@ today = date.today().strftime("%b %d, %Y")
 
 message = ''
 toggle = False
+test=''
 
 @app.route('/', methods=["GET", "POST"])
 def index():
