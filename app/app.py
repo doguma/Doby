@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, Blueprint
+from flask import Flask, render_template, url_for, request, redirect, make_response
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
@@ -221,9 +221,10 @@ def tocsv():
         request.form.get("to-csv")
 
         df = pd.DataFrame(res)
-        df.to_csv('trending_articles_' + str(date.today()) + '.csv', index=False)
-
-        return redirect(url_for('.index'))
+        resp = make_response(df.to_csv())
+        resp.headers["Content-Disposition"] = "attachment; filename=trending_articles_" + str(date.today()) + ".csv"
+        resp.headers["Content-Type"] = "text/csv"
+        return resp
 
 
 if __name__ == "__main__":
