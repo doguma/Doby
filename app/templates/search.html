@@ -87,9 +87,9 @@
                             <h3 class="text-light mt-5 mb-5">unigrams</h3>
                             {% for key, value in ngram1.items() %}
 
-                            {% if value >= 7 %}
+                            {% if value >= 30 %}
                             <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 4 %}
+                            {% elif value >= 20 %}
                             <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
                             {% else %}
                             <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
@@ -105,9 +105,9 @@
                             <h3 class="text-dark mt-5 mb-5 ">bigrams</h3>
                             {% for key, value in ngram2.items() %}
 
-                            {% if value >= 3 %}
+                            {% if value >= 20 %}
                             <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 2 %}
+                            {% elif value >= 8 %}
                             <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
                             {% else %}
                             <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
@@ -123,9 +123,9 @@
                             <h3 class="text-light mt-5 mb-5 ">trigrams</h3>
                             {% for key, value in ngram3.items() %}
 
-                            {% if value >= 3 %}
+                            {% if value >= 10 %}
                             <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 2 %}
+                            {% elif value >= 5 %}
                             <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
                             {% else %}
                             <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
@@ -139,31 +139,29 @@
                 <div class="my-5">
 
 
-                    <div class="container-fluid mb-3">
+                    <div class="container-fluid mb-5">
 
-                        <div class="row height justify-content-center align-items-center mb-5">
+                        <div class="justify-content-center align-items-center mb-5">
                             <h3 class="display-5 fw-normal mb-4">Export csv files</h3>
-                            <p class="lead">Click the button below to save trending articles as a csv file </p>
+                            <p class="lead mx-4 mb-4">Click the button below to save trending articles as a csv file </p>
                             <div class="mb-5">
                                 <div class="justify-content-center mx-2 mb-5" style="text-align:center;">
-                                    <form class="form-inline" method="POST" action="./to-csv-sa">
+                                    <form class="form-inline justify-content-center" method="POST" action="./to-csv-sa">
                                         <input type="hidden" value="home" name="to-csv-sa">
-                                        <input type="submit" class="btn btn-success btn-md" value="csv">
+                                        <input type="submit" class="btn btn-warning btn-md" value="csv">
                                     </form>
                                 </div>
 
                             </div>
                             <h3 class="display-5 fw-normal mb-4">Update Keywords</h3>
-                            <p class="lead">Click the button below to go back home </p>
-                            <p class="lead mb-4"> and search with new keywords</p>
+                            <p class="lead mx-4 mb-4">Click the button below to go back home and search with new keywords</p>
                             <div class="mb-5">
                                 <div class="justify-content-center mx-2 mb-5" style="text-align:center;">
-                                    <form class="form-inline" method="POST" action="./go-home">
+                                    <form class="form-inline justify-content-center" method="POST" action="./go-home">
                                         <input type="hidden" value="home" name="go-home">
                                         <input type="submit" class="btn btn-success btn-md" value="home">
                                     </form>
                                 </div>
-
                             </div>
                         </div>
                     </div>
