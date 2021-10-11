@@ -8,7 +8,7 @@ from nltk import ngrams
 from collections import Counter
 
 
-blank_words = ['disease', 'background', 'reports', 'may', 'changes', 'report', 'suggested', 'exte', 'development', 'association']
+blank_words = ['disease', 'background', 'reports', 'may', 'changes', 'report', 'suggested', 'exte', 'development', 'association', '\'s']
 
 
 def createcloud_trendy(res):
