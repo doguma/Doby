@@ -210,11 +210,9 @@ def search():
 
         articles = SearchArticle.query.all()
 
-        temp_text = []
+        temp_text = ''
         for i in articles:
-            temp_json = {}
-            temp_json['abstract'] = i.abstract_full
-        temp_text.append(temp_json)
+            temp_text = temp_text + ' ' + str(i.abstract_full)
 
         rand_sent_list = random_sentence(temp_text)
         rand_sent = rand_sent_list[random.randint(0,len(rand_sent_list))]
