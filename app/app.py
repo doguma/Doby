@@ -221,7 +221,7 @@ def tocsv():
         request.form.get("to-csv")
 
         df = pd.DataFrame(res)
-        df.to_csv('trending_articles_' + date.today() + '.csv', index=False)
+        df.to_csv('trending_articles_' + str(date.today()) + '.csv', index=False)
 
         return redirect(url_for('.index'))
 
