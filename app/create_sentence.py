@@ -5,7 +5,7 @@ import nltk
 import warnings
 warnings.filterwarnings('ignore')
 
-import en_core_web_sm
+from spacy import en_core_web_sm
 
 
 def random_sentence(collection):
