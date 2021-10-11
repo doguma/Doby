@@ -1,5 +1,5 @@
 import spacy
-import en_core_web_md
+import en_core_web_sm
 import re
 import markovify
 import nltk
@@ -7,7 +7,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def random_sentence(collection):
-    nlp = en_core_web_md.load()
+    nlp = en_core_web_sm.load()
     doc = nlp(collection)
     sents = ' '.join([sent.text for sent in doc.sents if len(sent.text) > 1])
 
