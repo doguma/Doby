@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, make_respo
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
-import re
+import re, random
 import json
 import time, os, sys
 import psycopg2
@@ -10,6 +10,8 @@ import pandas as pd
 
 from app.selenium_proc import search_keyword, trending
 from app.wordcloud import createcloud_trendy, createcloud_search
+from app.create_sentence import random_sentence
+
 
 app = Flask(__name__)
 
@@ -153,7 +155,7 @@ def index():
     articles = TrendyArticle.query.all()
     
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t, trendy_sentence=trendy_sentence)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
 
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -268,6 +270,21 @@ def tocsv_ta():
         resp.headers["Content-Type"] = "text/csv"
         return resp
 
+
+# @app.route("/rand-sent", methods=["GET", "POST"])
+# def rand_sent():
+#     if request.form:
+#         request.form.get("rand-sent")
+
+#         articles = SearchArticle.query.all()
+
+#         temp_text = []
+#         for i in articles:
+#             temp_json = {}
+#             temp_json['abstract'] = i.abstract_full
+#         temp_text.append(temp_json)
+
+#         rand_sent_list = random_sentence(temp_text)
 
 
 
