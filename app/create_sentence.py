@@ -8,7 +8,7 @@ warnings.filterwarnings('ignore')
 
 
 def random_sentence(collection):
-    nlp = spacy.load('en')
+    nlp = spacy.load('en_core_web_sm')
     doc = nlp(collection)
     sents = ' '.join([sent.text for sent in doc.sents if len(sent.text) > 1])
 
