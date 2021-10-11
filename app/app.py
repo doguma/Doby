@@ -217,16 +217,56 @@ def gohome():
         return redirect(url_for('.index'))
 
 
-@app.route("/to-csv", methods=["GET", "POST"])
+@app.route("/to-csv-sa", methods=["GET", "POST"])
 def tocsv():
     if request.form:
-        request.form.get("to-csv")
+        request.form.get("to-csv-sa")
 
-        df = pd.DataFrame(res)
+        articles = SearchArticle.query.all()
+
+        temp_csv = []
+
+        for i in articles:
+            temp_json = {}
+            temp_json['id'] = i.id
+            temp_json['title'] = i.title
+            temp_json['citation'] = i.authors
+            temp_json['abstract'] = i.abstract_full
+            temp_json['url'] = i.url
+            temp_csv.append(temp_json)
+
+        df = pd.DataFrame(temp_csv)
         resp = make_response(df.to_csv())
-        resp.headers["Content-Disposition"] = "attachment; filename=trending_articles_" + str(date.today()) + ".csv"
+        resp.headers["Content-Disposition"] = "attachment; filename=doby_sa_" + str(date.today()) + ".csv"
         resp.headers["Content-Type"] = "text/csv"
         return resp
+
+
+@app.route("/to-csv-ta", methods=["GET", "POST"])
+def tocsv():
+    if request.form:
+        request.form.get("to-csv-ta")
+
+        articles = TrendyArticle.query.all()
+
+        temp_csv = []
+
+        for i in articles:
+            temp_json = {}
+            temp_json['id'] = i.id
+            temp_json['title'] = i.title
+            temp_json['citation'] = i.authors
+            temp_json['abstract'] = i.abstract_full
+            temp_json['url'] = i.url
+            temp_csv.append(temp_json)
+
+        df = pd.DataFrame(temp_csv)
+        resp = make_response(df.to_csv())
+        resp.headers["Content-Disposition"] = "attachment; filename=doby_ta_" + str(date.today()) + ".csv"
+        resp.headers["Content-Type"] = "text/csv"
+        return resp
+
+
 
 
 if __name__ == "__main__":
