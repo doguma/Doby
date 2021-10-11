@@ -14,7 +14,7 @@ blank_words = ['disease', 'background', 'reports', 'may', 'changes', 'report', '
 def createcloud_trendy(res):
     collection = ''
     for i in res:
-        collection += str(i['text'])
+        collection += str(i['text_full'])
 
     total_tokens = word_tokenize(collection)
     total_tokens2 = []
@@ -64,7 +64,7 @@ def createcloud_search(keywords, res):
         keyword_list.append(i.word)
 
     for i in res:
-        collection += str(i['text'])
+        collection += str(i['text_full'])
 
     total_tokens = word_tokenize(collection)
     total_tokens2 = []

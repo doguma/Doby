@@ -32,10 +32,11 @@ class TrendyArticle(db.Model):
     title = db.Column(db.String(300))
     authors = db.Column(db.String(300))
     abstract = db.Column(db.String(5000))
+    abstract_full = db.Column(db.String(10000))
     url = db.Column(db.String(500))
 
     def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.url)
+        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.abstract_full, self.url)
 
 
 class SearchArticle(db.Model):
@@ -43,10 +44,11 @@ class SearchArticle(db.Model):
     title = db.Column(db.String(300))
     authors = db.Column(db.String(300))
     abstract = db.Column(db.String(5000))
+    abstract_full = db.Column(db.String(10000))
     url = db.Column(db.String(500))
 
     def __repr__(self):
-        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.url)
+        return "<Article: {}>".format(self.id, self.title, self.authors, self.abstract, self.abstract_full, self.url)
 
 
 class WordCloudT1(db.Model):
@@ -104,7 +106,7 @@ db.session.query(WordCloudT3).delete()
 res = trending()
 for i in res:
     if not TrendyArticle.query.filter_by(id=i['pubmed_id']).first():
-        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
+        new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], abstract_full=i['text_full'], url=i['url'])
         db.session.add(new_article)
 
 
@@ -180,7 +182,7 @@ def search():
         res2 = search_keyword(temp_string)
         for i in res2:
             if not SearchArticle.query.filter_by(id=i['pubmed_id']).first():
-                new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], url=i['url'])
+                new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], abstract=i['text'], abstract_full=i['text_full'], url=i['url'])
                 db.session.add(new_article)
 
         ngram1_s, ngram2_s, ngram3_s = createcloud_search(keywords, res2)

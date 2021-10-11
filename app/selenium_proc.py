@@ -48,6 +48,7 @@ def trending():
         if temp_str:
             temp_str = temp_str.get_text()
             if len(temp_str)> 300 and len(temp_author) > 25:
+                temp_json['text_full'] = temp_str
                 return_text = temp_str[:300] + '..'
                 temp_json['text'] = return_text
 
@@ -93,6 +94,7 @@ def search_keyword(keyword):
         if temp_str:
             temp_str = temp_str.get_text()
             if len(temp_str)> 300 and len(temp_author) > 25:
+                temp_json['text_full'] = temp_str
                 return_text = temp_str[:300] + '..'
                 temp_json['text'] = return_text
 
