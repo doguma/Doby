@@ -34,6 +34,7 @@ def trending():
         temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
 
         temp_author = remove_space(ar.select_one('.docsum-citation').get_text())
+        temp_json['author_full'] = temp_author
         return_author = (temp_author[:30] + '..') if len(temp_author)>30 else ''
         temp_json['authors'] = return_author
 
@@ -80,6 +81,7 @@ def search_keyword(keyword):
         temp_json['title'] = remove_space(ar.select_one('.docsum-title').get_text())
 
         temp_author = remove_space(ar.select_one('.docsum-citation').get_text())
+        temp_json['author_full'] = temp_author
         return_author = (temp_author[:30] + '..') if len(temp_author)>30 else ''
         temp_json['authors'] = return_author
 
