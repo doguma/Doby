@@ -5,11 +5,8 @@ import nltk
 import warnings
 warnings.filterwarnings('ignore')
 
-# !python -m spacy download en
-
-
 def random_sentence(collection):
-    nlp = en_core_web_sm.load()
+    nlp = spacy.load('en_core_web_sm')
     doc = nlp(collection)
     sents = ' '.join([sent.text for sent in doc.sents if len(sent.text) > 1])
 
