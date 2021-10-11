@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
+import re
 import json
 import time, os, sys
 import psycopg2
@@ -133,8 +134,9 @@ def index():
     message = ''
     if request.form:
         new_word = request.form.get("add_keyword")
+        word_nopunc = re.sub('[^a-zA-Z0-9_-]', '', new_word).strip()
 
-        if len(str(new_word).strip()) < 2:
+        if len(new_word) < 2 and not new_word.isspace() and new_word == word_nopunc:
             message = "type in valid keyword"
         elif Word.query.filter_by(word=new_word).first():
             message = "duplicate keyword"
