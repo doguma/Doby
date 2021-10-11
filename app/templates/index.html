@@ -180,6 +180,26 @@
                         <div class="mb-5"></div>
                     </div>
                 </div>
+
+
+                <div class="my-5">
+                    <h3 class="display-5 fw-normal mb-4">Export csv files</h3>
+                    <p class="lead">Click the button below to save trending articles as a csv file </p>
+                    <div class="container-fluid mb-3">
+
+                        <div class="row height justify-content-center align-items-center mb-5">
+                                <div class="mb-5">
+                                    <div class="justify-content-center mx-2 mb-5" style="text-align:center;">
+                                        <form class="form-inline" method="POST" action="./to-csv">
+                                            <input type="hidden" value="home" name="to-csv">
+                                            <input type="submit" class="btn btn-success btn-md" value="save csv">
+                                        </form>
+                                    </div>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
     </main>
 
     <footer class="container py-5">

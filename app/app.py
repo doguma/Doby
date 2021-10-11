@@ -6,6 +6,7 @@ import re
 import json
 import time, os, sys
 import psycopg2
+import pandas as pd
 
 from app.selenium_proc import search_keyword, trending
 from app.wordcloud import createcloud_trendy, createcloud_search
@@ -18,6 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 db = SQLAlchemy(app)
+
 
 class Word(db.Model):
     word = db.Column(db.String(80), nullable=False, primary_key=True)
@@ -209,6 +211,17 @@ def search():
 def gohome():
     if request.form:
         request.form.get("go-home")
+
+        return redirect(url_for('.index'))
+
+
+@app.route("/to-csv", methods=["GET", "POST"])
+def tocsv():
+    if request.form:
+        request.form.get("to-csv")
+
+        df = pd.DataFrame(res)
+        df.to_csv('trending_articles_' + date.today() + '.csv', index=False)
 
         return redirect(url_for('.index'))
 
