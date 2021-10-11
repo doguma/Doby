@@ -138,7 +138,7 @@ def index():
     message = ''
     if request.form:
         new_word = request.form.get("add_keyword")
-        word_nopunc = re.sub("[^\w\d'_-\s]+", '', new_word).strip()
+        word_nopunc = re.sub("[^\w\d'\s_-]+", '', new_word).strip()
         if len(new_word) < 2 or new_word.isspace() or new_word != word_nopunc:
             message = "type in valid keyword"
         elif Word.query.filter_by(word=new_word).first():

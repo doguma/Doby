@@ -20,13 +20,13 @@ def createcloud_trendy(res):
     total_tokens2 = []
     total_tokens3 = []
     for word in total_tokens:
-        word = re.sub("[^\w\d'_-\s]+", '', word).strip()
+        word = re.sub("[^\w\d'\s_-]+", '', word).strip()
         word = word.lower()
         if word not in stopwords.words('english') and len(word)>1 and word not in blank_words:
             total_tokens2.append(word)
 
     for word in total_tokens:
-        word = re.sub("[^\w\d'_-\s]+", '', word).strip()
+        word = re.sub("[^\w\d'\s_-]+", '', word).strip()
         word = word.lower()
         if word not in stopwords.words('english') and len(word)>1:
             total_tokens2.append(word)
@@ -70,13 +70,13 @@ def createcloud_search(keywords, res):
     total_tokens2 = []
     total_tokens3 = []
     for word in total_tokens:
-        word = re.sub("[^\w\d'_-\s]+", '', word).strip()
+        word = re.sub("[^\w\d'\s_-]+", '', word).strip()
         word = word.lower()
         if word not in stopwords.words('english') and word not in keyword_list and len(word)>1 and word not in blank_words:
             total_tokens2.append(word)
 
     for word in total_tokens:
-        word = re.sub("[^\w\d'_-\s]+", '', word).strip()
+        word = re.sub("[^\w\d'\s_-]+", '', word).strip()
         word = word.lower()
         if word not in stopwords.words('english') and len(word)>1:
             total_tokens2.append(word)
