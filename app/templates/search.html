@@ -39,7 +39,6 @@
                                 </div>
                                 {% endfor %}
                                 {% endif %}
-
                             </div>
                         </div>
                     </div>
@@ -48,7 +47,13 @@
                     <div class="container-fluid mb-3">
                         <h1>" {{random_sentence}} "</h1>
                     </div>
-
+                    <div class="row">
+                        {% if random_sentence %}
+                        {% for sentence in random_sentence %}
+                        <h1>" {{random_sentence}} "</h1>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
 
                 <div class="position-relative bg-dark text-center text-light pt-5 mb-5 pb-5">
