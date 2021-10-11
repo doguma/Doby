@@ -218,7 +218,7 @@ def gohome():
 
 
 @app.route("/to-csv-sa", methods=["GET", "POST"])
-def tocsv():
+def tocsv_sa():
     if request.form:
         request.form.get("to-csv-sa")
 
@@ -243,7 +243,7 @@ def tocsv():
 
 
 @app.route("/to-csv-ta", methods=["GET", "POST"])
-def tocsv():
+def tocsv_ta():
     if request.form:
         request.form.get("to-csv-ta")
 
