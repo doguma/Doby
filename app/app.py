@@ -210,7 +210,17 @@ def search():
 
         articles = SearchArticle.query.all()
 
-        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s)
+        temp_text = []
+        for i in articles:
+            temp_json = {}
+            temp_json['abstract'] = i.abstract_full
+        temp_text.append(temp_json)
+
+        # rand_sent_list = random_sentence(temp_text)
+        # rand_sent = rand_sent_list[random.randint(0,len(rand_sent_list))]
+        rand_sent = 'hello'
+
+        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = rand_sent)
 
 
 @app.route("/go-home", methods=["GET", "POST"])
