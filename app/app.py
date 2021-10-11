@@ -135,8 +135,7 @@ def index():
     if request.form:
         new_word = request.form.get("add_keyword")
         word_nopunc = re.sub('[^a-zA-Z0-9_-]', '', new_word).strip()
-
-        if len(new_word) < 2 and not new_word.isspace() and new_word == word_nopunc:
+        if len(new_word) < 2 and new_word.isspace() and new_word != word_nopunc:
             message = "type in valid keyword"
         elif Word.query.filter_by(word=new_word).first():
             message = "duplicate keyword"
