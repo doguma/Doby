@@ -112,7 +112,7 @@ for i in res:
         db.session.add(new_article)
 
 
-ngram1_t, ngram2_t, ngram3_t, trendy_sentence = createcloud_trendy(res)
+ngram1_t, ngram2_t, ngram3_t = createcloud_trendy(res)
 
 for key, value in ngram1_t.items():
     if not WordCloudT1.query.filter_by(word=key).first():
