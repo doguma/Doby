@@ -102,7 +102,7 @@ db.create_all()
 db.session.query(TrendyArticle).delete()
 db.session.query(WordCloudT1).delete()
 db.session.query(WordCloudT2).delete()
-db.session.query(WordCloudT3).delete()
+db.session.query(WordCloudT3).delete() 
 
 
 res = trending()
