@@ -33,7 +33,7 @@ class Thesis(db.Model):
     thesis = db.Column(db.String(1000), nullable=False, primary_key=True)
 
     def __repr__(self):
-        return "<Keyword: {}>".format(self.thesis)
+        return "{}".format(self.thesis)
 
 class TrendyArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
