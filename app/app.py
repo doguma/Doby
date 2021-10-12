@@ -207,6 +207,7 @@ def search():
         db.session.query(WordCloudS1).delete()
         db.session.query(WordCloudS2).delete()
         db.session.query(WordCloudS3).delete()
+        db.session.query(Thesis).delete() 
 
         res2 = search_keyword(temp_string)
         for i in res2:
