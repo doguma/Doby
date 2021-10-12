@@ -10,7 +10,6 @@ warnings.filterwarnings('ignore')
 def random_sentence(collection):
 
     nlp = en_core_web_sm.load()
-    doc = nlp(collection)
 
     # code here referenced from :
     # https://towardsdatascience.com/text-generation-with-markov-chains-an-introduction-to-using-markovify-742e6680dc33

@@ -29,6 +29,12 @@ class Word(db.Model):
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
 
+class Thesis(db.Model):
+    thesis = db.Column(db.String(80), nullable=False, primary_key=True)
+
+    def __repr__(self):
+        return "<Keyword: {}>".format(self.thesis)
+
 class TrendyArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     title = db.Column(db.String(300))
@@ -105,7 +111,7 @@ db.session.query(TrendyArticle).delete()
 db.session.query(WordCloudT1).delete()
 db.session.query(WordCloudT2).delete()
 db.session.query(WordCloudT3).delete() 
-
+db.session.query(Thesis).delete() 
 
 res = trending()
 for i in res:
@@ -210,13 +216,9 @@ def search():
 
         articles = SearchArticle.query.all()
 
-        temp_text = ''
-        for i in articles:
-            temp_text = temp_text + ' ' + str(i.abstract_full)
+        thesis = Thesis.query.all()
 
-        rand_sent = random_sentence(temp_text)
-
-        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = rand_sent)
+        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
 
 
 @app.route("/go-home", methods=["GET", "POST"])
@@ -277,21 +279,22 @@ def tocsv_ta():
         return resp
 
 
-# @app.route("/rand-sent", methods=["GET", "POST"])
-# def rand_sent():
-#     if request.form:
-#         request.form.get("rand-sent")
+@app.route("/refresh", methods=["GET", "POST"])
+def refresh():
+    db.session.query(Thesis).delete() 
+    if request.form:
+        request.form.get("refresh")
 
-#         articles = SearchArticle.query.all()
+        articles = SearchArticle.query.all()
 
-#         temp_text = []
-#         for i in articles:
-#             temp_json = {}
-#             temp_json['abstract'] = i.abstract_full
-#         temp_text.append(temp_json)
+        for i in articles:
+            temp_text = temp_text + ' ' + str(i.abstract_full)
 
-#         rand_sent_list = random_sentence(temp_text)
-
+        rand_sent = random_sentence(temp_text)
+        new_thesis = Thesis(thesis=rand_sent)
+        db.session.add(new_thesis)
+        db.session.commit()
+        return redirect(url_for('.search'))
 
 
 if __name__ == "__main__":

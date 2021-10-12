@@ -44,13 +44,24 @@
                     </div>
                     <div class="mb-5 pb-2 justify-content-center align-items-center">
 
-                    <h3 class="display-5 fw-normal mb-5">Your thesis can be </h3>
+                        <h3 class="display-5 fw-normal mb-5">Your thesis can be </h3>
 
-                    <div class="mx-5 mt-3 mb-5 ">
-                        {% if random_sentence %}
-                        <p class="justify-content-center lead">"{{random_sentence}}"</p>
-                        {% endif %}
-                    </div></div>
+                        <div class="mx-5 mt-3 mb-5 ">
+                            {% if random_sentence %}
+                            {% for sentence in random_sentence %}
+                            <p class="justify-content-center lead">"{{sentence}}"</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="row justify-content-center mx-2 mb-1">
+                            <form class="form-inline" method="POST" action="./refresh">
+                                <input type="hidden" value="search" name="refresh">
+                                <button class="btn btn-dark mt-4 btn-lg"><i class="fas fa-4x fa-sync-alt "></i></button>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="position-relative bg-dark text-center text-light pt-5 mb-5 pb-5">
