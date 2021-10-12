@@ -281,6 +281,7 @@ def tocsv_ta():
 
 @app.route("/refresh", methods=["GET", "POST"])
 def refresh():
+    temp_text = ''
     db.session.query(Thesis).delete() 
     if request.form:
         request.form.get("refresh")
