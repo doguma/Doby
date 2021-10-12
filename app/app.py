@@ -178,6 +178,10 @@ def delete():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    keywords = []
+    articles = []
+    thesis = []
+    
     if request.form:
         request.form.get("search_keyword")
         keywords = Word.query.all()
