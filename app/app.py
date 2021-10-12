@@ -315,7 +315,7 @@ def refresh():
         db.session.add(new_thesis)
         db.session.commit()
 
-    return redirect(url_for('.search'))
+    return render_template("search.html")
 
 
 
