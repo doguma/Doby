@@ -182,12 +182,12 @@ def delete():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    keywords = []
-    articles = []
-    thesis = []
-    ngram1_s = {}
-    ngram2_s = {}
-    ngram3_s = {}
+    # keywords = []
+    # articles = []
+    # thesis = []
+    # ngram1_s = {}
+    # ngram2_s = {}
+    # ngram3_s = {}
     keywords = Word.query.all()
     articles = SearchArticle.query.all()
     thesis = Thesis.query.all()
