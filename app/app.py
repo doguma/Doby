@@ -148,6 +148,10 @@ def index():
     message = ''
     keywords = []
     articles = []
+    ngram1_t = {}
+    ngram2_t = {}
+    ngram3_t = {}
+
     if request.form:
         new_word = request.form.get("add_keyword")
         word_nopunc = re.sub("[^\w\d'\s_-]+", '', new_word).strip()
@@ -181,7 +185,10 @@ def search():
     keywords = []
     articles = []
     thesis = []
-    
+    ngram1_s = {}
+    ngram2_s = {}
+    ngram3_s = {}
+
     if request.form:
         request.form.get("search_keyword")
         keywords = Word.query.all()
