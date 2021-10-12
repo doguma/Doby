@@ -215,19 +215,19 @@ def search():
                 new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], authors_full = i['authors_full'], abstract=i['text'], abstract_full=i['text_full'], url=i['url'])
                 db.session.add(new_article)
 
-        ngram1_s, ngram2_s, ngram3_s = createcloud_search(keywords, res2)
+        ngram1_s_b, ngram2_s_b, ngram3_s_b = createcloud_search(keywords, res2)
 
-        for key, value in ngram1_s.items():
+        for key, value in ngram1_s_b.items():
             if not WordCloudS1.query.filter_by(word=key).first():
                 new_ngram1 = WordCloudS1(word=key, count=value)
                 db.session.add(new_ngram1)
 
-        for key, value in ngram2_s.items():
+        for key, value in ngram2_s_b.items():
             if not WordCloudS2.query.filter_by(word=key).first():
                 new_ngram2 = WordCloudS2(word=key, count=value)
                 db.session.add(new_ngram2)
 
-        for key, value in ngram3_s.items():
+        for key, value in ngram3_s_b.items():
             if not WordCloudS3.query.filter_by(word=key).first():
                 new_ngram3 = WordCloudS3(word=key, count=value)
                 db.session.add(new_ngram3)
