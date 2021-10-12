@@ -30,7 +30,7 @@ class Word(db.Model):
         return "<Keyword: {}>".format(self.word)
 
 class Thesis(db.Model):
-    thesis = db.Column(db.String(80), nullable=False, primary_key=True)
+    thesis = db.Column(db.String(1000), nullable=False, primary_key=True)
 
     def __repr__(self):
         return "<Keyword: {}>".format(self.thesis)
