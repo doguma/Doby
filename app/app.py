@@ -191,6 +191,10 @@ def search():
     keywords = Word.query.all()
     articles = SearchArticle.query.all()
     thesis = Thesis.query.all()
+    ngram1_s = WordCloudS1.query.all()
+    ngram2_s = WordCloudS1.query.all()
+    ngram3_s = WordCloudS1.query.all()
+
 
     if request.form:
         request.form.get("search_keyword")
@@ -229,7 +233,9 @@ def search():
 
         db.session.commit()
 
-        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
+        # return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
+
+    return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
 
 
 
