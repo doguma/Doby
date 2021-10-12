@@ -146,6 +146,8 @@ toggle = False
 @app.route('/', methods=["GET", "POST"])
 def index():
     message = ''
+    keywords = []
+    articles = []
     if request.form:
         new_word = request.form.get("add_keyword")
         word_nopunc = re.sub("[^\w\d'\s_-]+", '', new_word).strip()
