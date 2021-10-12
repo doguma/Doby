@@ -129,14 +129,14 @@
                     <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-light mt-5 mb-5">unigrams</h3>
-                            {% for key, value in ngram1.items() %}
+                            {% for i in ngram1 %}
 
-                            {% if value >= 30 %}
-                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 20 %}
-                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% if i.count >= 30 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{i.word}} ({{i.count}})</button>
+                            {% elif i.count >= 20 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{i.word}} ({{i.count}})</button>
                             {% else %}
-                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            <button type="button" class="btn btn-info btn-sm m-3">{{i.word}} ({{i.count}})</button>
                             {% endif %}
                             {% endfor %}
                         </div>
@@ -147,14 +147,14 @@
                     <div class="bg-light shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 21px 21px 0 0;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-dark mt-5 mb-5 ">bigrams</h3>
-                            {% for key, value in ngram2.items() %}
+                            {% for i in ngram2 %}
 
-                            {% if value >= 20 %}
-                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 10 %}
-                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% if i.count >= 20 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{i.word}} ({{i.count}})</button>
+                            {% elif i.count >= 8 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{i.word}} ({{i.count}})</button>
                             {% else %}
-                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            <button type="button" class="btn btn-info btn-sm m-3">{{i.word}} ({{i.count}})</button>
                             {% endif %}
                             {% endfor %}
                         </div>
@@ -165,14 +165,14 @@
                     <div class="bg-dark shadow-sm mx-5 mt-5 mb-5 pb-5" style="border-radius: 0 0 21px 21px ;">
                         <div class="justify-content-center mx-3 mb-5 mt-2 pt-5" style="text-align:center;">
                             <h3 class="text-light mt-5 mb-5 ">trigrams</h3>
-                            {% for key, value in ngram3.items() %}
+                            {% for i in ngram3 %}
 
-                            {% if value >= 8 %}
-                            <button type="button" class="btn btn-info btn-lg m-3">{{key}} ({{value}})</button>
-                            {% elif value >= 6 %}
-                            <button type="button" class="btn btn-info btn-md m-3">{{key}} ({{value}})</button>
+                            {% if i.count >= 8 %}
+                            <button type="button" class="btn btn-info btn-lg m-3">{{i.word}} ({{i.count}})</button>
+                            {% elif i.count >= 6 %}
+                            <button type="button" class="btn btn-info btn-md m-3">{{i.word}} ({{i.count}})</button>
                             {% else %}
-                            <button type="button" class="btn btn-info btn-sm m-3">{{key}} ({{value}})</button>
+                            <button type="button" class="btn btn-info btn-sm m-3">{{i.word}} ({{i.count}})</button>
                             {% endif %}
                             {% endfor %}
                         </div>

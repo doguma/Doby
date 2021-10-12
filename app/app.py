@@ -153,6 +153,10 @@ def index():
     ngram3_t = {}
     keywords = Word.query.all()
     articles = TrendyArticle.query.all()
+    wc_1gram = WordCloudT1.query.all()
+    wc_bigram = WordCloudT2.query.all()
+    wc_trigram = WordCloudT3.query.all()
+
 
     if request.form:
         new_word = request.form.get("add_keyword")
@@ -167,7 +171,7 @@ def index():
             db.session.commit()
             keywords = Word.query.all()
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
+    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = wc_1gram, ngram2 = wc_bigram, ngram3 = wc_trigram)
 
 
 
