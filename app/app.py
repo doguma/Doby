@@ -300,13 +300,13 @@ def tocsv_ta():
 
 @app.route("/refresh", methods=["GET", "POST"])
 def refresh():
-    temp_text = ''
-    db.session.query(Thesis).delete() 
+
+    
     if request.form:
         request.form.get("refresh")
-
+        db.session.query(Thesis).delete() 
         articles = SearchArticle.query.all()
-
+        temp_text = ''
         for i in articles:
             temp_text = temp_text + ' ' + str(i.abstract_full)
 
@@ -315,7 +315,7 @@ def refresh():
         db.session.add(new_thesis)
         db.session.commit()
 
-    return render_template("search.html")
+    return redirect(url_for('.search'))
 
 
 
