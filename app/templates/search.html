@@ -140,9 +140,9 @@
                             <h3 class="text-light mt-5 mb-5 ">trigrams</h3>
                             {% for i in ngram3 %}
 
-                            {% if i.count >= 10 %}
+                            {% if i.count >= 25 %}
                             <button type="button" class="btn btn-info btn-lg m-3">{{i.word}} ({{i.count}})</button>
-                            {% elif i.count >= 5 %}
+                            {% elif i.count >= 15 %}
                             <button type="button" class="btn btn-info btn-md m-3">{{i.word}} ({{i.count}})</button>
                             {% else %}
                             <button type="button" class="btn btn-info btn-sm m-3">{{i.word}} ({{i.count}})</button>
