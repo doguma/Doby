@@ -151,6 +151,8 @@ def index():
     ngram1_t = {}
     ngram2_t = {}
     ngram3_t = {}
+    keywords = Word.query.all()
+    articles = TrendyArticle.query.all()
 
     if request.form:
         new_word = request.form.get("add_keyword")
@@ -163,11 +165,9 @@ def index():
             new_keyword = Word(word=new_word)
             db.session.add(new_keyword)
             db.session.commit()
-    keywords = Word.query.all()
-    articles = TrendyArticle.query.all()
-    
 
-    return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
+        return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
+
 
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -188,10 +188,12 @@ def search():
     ngram1_s = {}
     ngram2_s = {}
     ngram3_s = {}
+    keywords = Word.query.all()
+    articles = SearchArticle.query.all()
+    thesis = Thesis.query.all()
 
     if request.form:
         request.form.get("search_keyword")
-        keywords = Word.query.all()
 
         temp_string = ''
         for i in keywords:
@@ -227,11 +229,8 @@ def search():
 
         db.session.commit()
 
-    articles = SearchArticle.query.all()
+        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
 
-    thesis = Thesis.query.all()
-
-    return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
 
 
 @app.route("/go-home", methods=["GET", "POST"])
