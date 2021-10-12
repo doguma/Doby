@@ -214,11 +214,11 @@ def search():
 
         db.session.commit()
 
-        articles = SearchArticle.query.all()
+    articles = SearchArticle.query.all()
 
-        thesis = Thesis.query.all()
+    thesis = Thesis.query.all()
 
-        return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
+    return render_template("search.html", search_articles = articles, keywords = keywords, ngram1 = ngram1_s, ngram2 = ngram2_s, ngram3 = ngram3_s, random_sentence = thesis)
 
 
 @app.route("/go-home", methods=["GET", "POST"])
@@ -295,7 +295,9 @@ def refresh():
         new_thesis = Thesis(thesis=rand_sent)
         db.session.add(new_thesis)
         db.session.commit()
-        return redirect(url_for('.search'))
+
+    return redirect(url_for('.search'))
+
 
 
 if __name__ == "__main__":
