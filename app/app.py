@@ -165,6 +165,7 @@ def index():
             new_keyword = Word(word=new_word)
             db.session.add(new_keyword)
             db.session.commit()
+            keywords = Word.query.all()
 
     return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = ngram1_t, ngram2 = ngram2_t, ngram3 = ngram3_t)
 
