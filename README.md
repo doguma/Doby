@@ -34,7 +34,7 @@ Doby provides NLP analysis and visualization of the scholarly articles, along wi
 
 As can be seen in the following diagram, Doby used web crawling from Selenium and Beautiful Soup, with Flask and Heroku's PostgreSQL. The text processing part was implemented with nltk, spacy, re and 
 
-
+<img src="/doby screenshots/doby flowchart.png?raw=true" width="500px">
   
 <!-- Progress -->
 ## Navigation
