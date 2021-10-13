@@ -22,8 +22,8 @@ def random_sentence(collection):
     gen2 = POSifiedText(collection, state_size=1)
 
     res_sent = gen2.make_short_sentence(max_chars=200)
-    res_sent = re.sub(' ,', ',', res_sent)
-    res_sent = re.sub(' .', '.', res_sent)
-    res_sent = re.sub(' - ', '-', res_sent)
+    # res_sent = re.sub(' ,', ',', res_sent)
+    # res_sent = re.sub(' .', '.', res_sent)
+    # res_sent = re.sub(' - ', '-', res_sent)
 
     return res_sent
