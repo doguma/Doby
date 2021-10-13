@@ -58,7 +58,7 @@ Packges utilized in Doby :
 ## Content
 
 ### Home Page
-The home page includes the search bar, trending articles from PubMed, 'unigram, bigram, trigram' lists from the context, and option to export them as csv files.
+The home page includes the search bar, trending articles from PubMed (as of current date - date.today()), 'unigram, bigram, trigram' lists from the context, and option to export them as csv files.
 
 <img src="/doby screenshots/indexhtml.png?raw=true" width="600px">
 <img src="/doby screenshots/trendingarticles.png?raw=true" width="600px">
