@@ -66,7 +66,7 @@ The home page includes the search bar, trending articles from PubMed, 'unigram, 
 
 
 ### Search Page
-The search page includes the queried keywords, auto sentence generator (refresh button), 'unigram, bigram, trigram' lists from searched articles, and also an option to export them as csv files.
+The search page includes the queried keywords, auto sentence generator (refresh button), list of searched articles, 'unigram, bigram, trigram' from searched articles, and also an option to export the articles as csv files + a home button.
 
 
 <img src="/doby screenshots/lemon and brain.png?raw=true" width="600px">
