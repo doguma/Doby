@@ -30,7 +30,7 @@ Heroku deployment available at https://doby.herokuapp.com/ - it may take few sec
 <!-- Project Summary -->
 ## Introduction
 
-Doby uses unigram, bigram and trigram frequency from the context of the searched articles, to help users understand the topic in a different point of view. It also provides a random thesis generator via Markov chain & Machine Learning and a convenient option of csv file export for trending articles and searched articles.
+Doby uses unigram, bigram and trigram frequency from the context of the searched articles to help users understand the topic in a different point of view. It also provides a random thesis generator via Markov chain & Machine Learning and a convenient option of csv file export for trending articles and searched articles.
 
 
 ## Flow Chart
