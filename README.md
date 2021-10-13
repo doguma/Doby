@@ -1,8 +1,9 @@
 
 <h1 align="left">Doby</h3>
 <p align="left">
-    NLP analysis and visualization of scholarly articles - sourced from PubMed.
-Heroku deployment available at [https://doby.herokuapp.com/](https://doby.herokuapp.com/)
+    NLP analysis and visualization of scholarly articles - sourced from PubMed.</p>
+<p>
+	Heroku deployment available at https://doby.herokuapp.com/
 </p> 
 
 <!-- TABLE OF CONTENTS -->
