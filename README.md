@@ -21,7 +21,6 @@
 		<li><a href="#home-page">Home Page</a></li>
 		<li><a href="#search-page">Search Page</a></li>
 	</ul>
-	    
     	</li>
     	<li>
 	    <a href="#references">References</a>
@@ -55,7 +54,7 @@ Following are packges utilized in Doby :
 
 <img src="/doby screenshots/heroku chrome driver.png?raw=true" width="800px">
   
----
+
 
 <!-- Progress -->
 ## Content
