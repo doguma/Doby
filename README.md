@@ -2,7 +2,6 @@
 <h1 align="left">Doby</h3>
 <p align="left">
     NLP analysis and visualization of scholarly articles sourced from PubMed.</p>
-
 	Heroku deployment available at https://doby.herokuapp.com/ - it may take few seconds to load of the [dyno](https://www.heroku.com/dynos) is asleep. :sleeping:
 
 
