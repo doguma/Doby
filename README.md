@@ -46,7 +46,7 @@ Following are packges utilized in Doby :
 - [**Markovify**](https://github.com/jsvine/markovify) was used for creating Markov Chain from the given text and its word tokens and to regenerate the sentence based on the # of states and word limits.
 
 - Heroku chrome and chrome driver were also added as buildpacks for selenium on Heroku.
-- 
+
 <img src="/doby screenshots/heroku chrome driver.png?raw=true" width="800px">
   
 <!-- Progress -->
