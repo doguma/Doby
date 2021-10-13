@@ -43,30 +43,30 @@ Following are packges utilized in Doby :
 
 - [**Markovify**](https://github.com/jsvine/markovify) was used for creating Markov Chain from the given text and its word tokens and to regenerate the sentence based on the # of states and word limits.
 
-<img src="/doby screenshots/doby flowchart.png?raw=true" width="700px">
+<img src="/doby screenshots/doby flowchart.png?raw=true" width="800px">
   
 <!-- Progress -->
 ## Content
 
 ### Home Page
 The home page includes the search bar, trending articles from PubMed, 'unigram, bigram, trigram' lists from the context, and option to export them as csv files.
-<img src="/doby screenshots/indexhtml.png?raw=true" width="700px">
-<img src="/doby screenshots/trendingarticles.png?raw=true" width="700px">
-<img src="/doby screenshots/unigrams_t.png?raw=true" width="700px">
-<img src="/doby screenshots/bigrams_t.png?raw=true" width="700px">
-<img src="/doby screenshots/trigrams_t.png?raw=true" width="700px">
-<img src="/doby screenshots/exportcsv_home.png?raw=true" width="700px">
+
+<img src="/doby screenshots/indexhtml.png?raw=true" width="600px">
+<img src="/doby screenshots/trendingarticles.png?raw=true" width="600px">
+<img src="/doby screenshots/unigrams_t.png?raw=true" width="600px">
+<img src="/doby screenshots/bigrams_t.png?raw=true" width="600px">
+<img src="/doby screenshots/trigrams_t.png?raw=true" width="600px">
+<img src="/doby screenshots/exportcsv_home.png?raw=true" width="600px">
 
 
 ### Search Page
 The search page includes the queried keywords, auto sentence generator (refresh button), 'unigram, bigram, trigram' lists from searched articles, and also an option to export them as csv files.
 
-<img src="/doby screenshots/searchhtml.png?raw=true" width="700px">
-<img src="/doby screenshots/searchedarticles.png?raw=true" width="700px">
-<img src="/doby screenshots/unigrams_s.png?raw=true" width="700px">
-<img src="/doby screenshots/exportcsv.png?raw=true" width="700px">
 
-
+<img src="/doby screenshots/searchhtml.png?raw=true" width="600px">
+<img src="/doby screenshots/searchedarticles.png?raw=true" width="600px">
+<img src="/doby screenshots/unigrams_s.png?raw=true" width="600px">
+<img src="/doby screenshots/exportcsv.png?raw=true" width="600px">
 
 
 References :
