@@ -2,10 +2,8 @@ from flask import Flask, render_template, url_for, request, redirect, make_respo
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
 
-import re, random
-import json
-import time, os, sys
-import psycopg2
+import re
+import os
 import pandas as pd
 
 from app.selenium_proc import search_keyword, trending
@@ -156,6 +154,7 @@ def index():
     wc_1gram = WordCloudT1.query.all()
     wc_bigram = WordCloudT2.query.all()
     wc_trigram = WordCloudT3.query.all()
+    db.session.query(Thesis).delete() 
 
 
     if request.form:
