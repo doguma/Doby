@@ -3,7 +3,7 @@
 - Heroku deployment available at https://doby.herokuapp.com/ - it may take few seconds to load of the [dyno](https://www.heroku.com/dynos) is asleep. :sleeping:
 
 
-### Table of Contents
+## Table of Contents
 <!-- TABLE OF CONTENTS -->
 
 <ol>
