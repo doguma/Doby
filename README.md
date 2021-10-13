@@ -39,9 +39,9 @@ As can be seen in the following diagram, Doby uses Flask as the main web platfor
 
 Following are packges utilized in Doby :
 
-- Selenium and Beautiful Soup was used to access PubMed and to pull texts from available articles to be updated on the database.
+- Selenium and Beautiful Soup were used to access PubMed and to pull texts from available articles to be updated on the database.
 
-- Nltk, spacy, re was used to clean out the text, and to remove stop words and unnecessary tokens.
+- Nltk, spacy, re were used to clean out the text, and to remove stop words and unnecessary tokens.
 
 - [**Markovify**](https://github.com/jsvine/markovify) was used for creating Markov Chain from the given text and its word tokens and to regenerate the sentence based on the # of states and word limits.
 
@@ -49,6 +49,8 @@ Following are packges utilized in Doby :
 
 <img src="/doby screenshots/heroku chrome driver.png?raw=true" width="800px">
   
+---
+
 <!-- Progress -->
 ## Content
 
