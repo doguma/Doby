@@ -16,11 +16,11 @@
         	<a href="#flow-chart">Flow Chart</a>
     	</li>
     	<li>
-      		<a href="#content">Content</a>
-		<ul>
-			<li><a href="#home-page">Home Page</a></li>
-			<li><a href="#search-page">Search Page</a></li>
-		</ul>
+	<a href="#content">Content</a>
+	<ul>
+		<li><a href="#home-page">Home Page</a></li>
+		<li><a href="#search-page">Search Page</a></li>
+	</ul>
 	    
     	</li>
     	<li>
