@@ -191,8 +191,8 @@ def search():
     articles = SearchArticle.query.all()
     thesis = Thesis.query.all()
     ngram1_s = WordCloudS1.query.all()
-    ngram2_s = WordCloudS1.query.all()
-    ngram3_s = WordCloudS1.query.all()
+    ngram2_s = WordCloudS2.query.all()
+    ngram3_s = WordCloudS3.query.all()
 
 
     if request.form:
