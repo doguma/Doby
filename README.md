@@ -8,21 +8,25 @@
 
 <!-- TABLE OF CONTENTS -->
 
-  <ol>
-    <li>
+<ol>
+    	<li>
       <a href="#introduction">Introduction</a>
-    </li>
-    <li>
-        <a href="#flow-chart">Flow Chart</a>
-    </li>
-    <li>
-      <a href="#content">Content</a>
-      <ul>
-	  <li><a href="#home-page">Home Page</a></li>
-	  <li><a href="#search-page">Search Page</a></li>
-      </ul>
-    </li>
-  </ol>
+    	</li>
+    	<li>
+        	<a href="#flow-chart">Flow Chart</a>
+    	</li>
+    	<li>
+      		<a href="#content">Content</a>
+		<ul>
+			<li><a href="#home-page">Home Page</a></li>
+			<li><a href="#search-page">Search Page</a></li>
+		</ul>
+	    
+    	</li>
+    	<li>
+	    <a href="#references">References</a>
+	</li>
+</ol>
 
 
 
@@ -78,8 +82,9 @@ The search page includes the queried keywords, auto sentence generator (refresh 
 
 ---
 
-References :
-- [Text generation from Markov Chains](https://towardsdatascience.com/text-generation-with-markov-chains-an-introduction-to-using-markovify-742e6680dc33)
+### References
+- [How to deploy your Flask app on Heroku](https://medium.com/@hannah.hj.do/deploy-flask-to-heroku-ed487041ac28)
+- [Text Generation with Markov Chains: An Introduction to using Markovify](https://towardsdatascience.com/text-generation-with-markov-chains-an-introduction-to-using-markovify-742e6680dc33)
 
 
 
