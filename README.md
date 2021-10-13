@@ -1,7 +1,7 @@
 
 <h1 align="left">Doby</h3>
 <p align="left">
-    NLP analysis and visualization of scholarly articles - sourced from PubMed.</p>
+    NLP analysis and visualization of scholarly articles sourced from PubMed.</p>
 <p>
 	Heroku deployment available at https://doby.herokuapp.com/
 </p> 
@@ -32,7 +32,7 @@
 <!-- Project Summary -->
 ## Introduction
 
-Doby provides NLP analysis and visualization of the scholarly articles. It uses unigram, bigram and trigram frequency from the context of the searched keywords, to help users understand the topic in a different point of view. It also provides a random thesis generator via Markov chain and Machine Learning and an option of csv file export for trending articles and searched articles.
+Doby uses unigram, bigram and trigram frequency from the context of the searched articles, to help users understand the topic in a different point of view. It also provides a random thesis generator via Markov chain & Machine Learning and a convenient option of csv file export for trending articles and searched articles.
 
 
 ## Flow Chart
