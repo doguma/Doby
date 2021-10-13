@@ -1,7 +1,7 @@
 
-<h1 align="left">Doby</h3>
+<h1 align="left">[Doby](https://doby.herokuapp.com/)</h3>
 <p align="left">
-    NLP analysis and visualization of scholarly articles - PubMed
+    NLP analysis and visualization of scholarly articles - sourced from PubMed.
 </p> 
 
 <!-- TABLE OF CONTENTS -->
