@@ -35,6 +35,8 @@ Doby provides NLP analysis and visualization of the scholarly articles. It uses 
 As can be seen in the following diagram, Doby uses Flask as the main web platform, and Heroku for PostgreSQL and deployment.
 
 
+<img src="/doby screenshots/doby flowchart.png?raw=true" width="800px">
+
 Following are packges utilized in Doby :
 
 - Selenium and Beautiful Soup was used to access PubMed and to pull texts from available articles to be updated on the database.
@@ -43,7 +45,9 @@ Following are packges utilized in Doby :
 
 - [**Markovify**](https://github.com/jsvine/markovify) was used for creating Markov Chain from the given text and its word tokens and to regenerate the sentence based on the # of states and word limits.
 
-<img src="/doby screenshots/doby flowchart.png?raw=true" width="800px">
+- Heroku chrome and chrome driver were also added as buildpacks for selenium on Heroku.
+- 
+<img src="/doby screenshots/heroku chrome driver.png?raw=true" width="800px">
   
 <!-- Progress -->
 ## Content
@@ -56,7 +60,7 @@ The home page includes the search bar, trending articles from PubMed, 'unigram, 
 <img src="/doby screenshots/unigrams_t.png?raw=true" width="600px">
 <img src="/doby screenshots/bigrams_t.png?raw=true" width="600px">
 <img src="/doby screenshots/trigrams_t.png?raw=true" width="600px">
-<img src="/doby screenshots/exportcsv_home.png?raw=true" width="600px">
+<img src="/doby screenshots/exportcsv.png?raw=true" width="600px">
 
 
 ### Search Page
@@ -66,8 +70,9 @@ The search page includes the queried keywords, auto sentence generator (refresh 
 <img src="/doby screenshots/searchhtml.png?raw=true" width="600px">
 <img src="/doby screenshots/searchedarticles.png?raw=true" width="600px">
 <img src="/doby screenshots/unigrams_s.png?raw=true" width="600px">
-<img src="/doby screenshots/exportcsv.png?raw=true" width="600px">
+<img src="/doby screenshots/exportcsv_home.png?raw=true" width="600px">
 
+---
 
 References :
 - [Text generation from Markov Chains](https://towardsdatascience.com/text-generation-with-markov-chains-an-introduction-to-using-markovify-742e6680dc33)
