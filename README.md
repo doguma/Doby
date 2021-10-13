@@ -42,7 +42,7 @@ As can be seen in the following diagram, Doby uses Flask as the main web platfor
 
 <img src="/doby screenshots/doby flowchart.png?raw=true" width="800px">
 
-Following are packges utilized in Doby :
+Packges utilized in Doby :
 
 - Selenium and Beautiful Soup were used to access PubMed and to pull texts from available articles to be updated on the database.
 
