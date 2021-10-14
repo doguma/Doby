@@ -4,7 +4,7 @@ Heroku deployment available at https://doby.herokuapp.com/ - it may take few sec
 
 <!--
 ## Table of Contents
-<!-- TABLE OF CONTENTS -->
+
 
 <ol>
     	<li>
