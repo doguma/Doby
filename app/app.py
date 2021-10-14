@@ -232,6 +232,9 @@ def search():
                 db.session.add(new_ngram3)
 
         articles = SearchArticle.query.all()
+        ngram1_s = WordCloudS1.query.all()
+        ngram2_s = WordCloudS2.query.all()
+        ngram3_s = WordCloudS3.query.all()
 
         db.session.commit()
 
