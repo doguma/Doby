@@ -2,7 +2,7 @@
 ### NLP analysis and visualization of scholarly articles sourced from PubMed.
 Heroku deployment available at https://doby.herokuapp.com/ - it may take few seconds to load if the [dyno](https://www.heroku.com/dynos) is asleep. :sleeping:
 
-
+<!--
 ## Table of Contents
 <!-- TABLE OF CONTENTS -->
 
@@ -26,7 +26,7 @@ Heroku deployment available at https://doby.herokuapp.com/ - it may take few sec
 </ol>
 
 
-
+-->
 <!-- Project Summary -->
 ## Introduction
 
