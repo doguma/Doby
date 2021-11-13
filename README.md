@@ -2,9 +2,9 @@
 ### NLP analysis and visualization of scholarly articles sourced from PubMed.
 Heroku deployment available at https://doby.herokuapp.com/ - it may take few seconds to load if the [dyno](https://www.heroku.com/dynos) is asleep. :sleeping:
 
-
+<!--
 ## Table of Contents
-<!-- TABLE OF CONTENTS -->
+
 
 <ol>
     	<li>
@@ -26,11 +26,11 @@ Heroku deployment available at https://doby.herokuapp.com/ - it may take few sec
 </ol>
 
 
-
+-->
 <!-- Project Summary -->
 ## Introduction
 
-Doby uses unigram, bigram and trigram frequency from the context of the searched articles to help users understand the topic in a different point of view. It also provides a random thesis generator via Markov chain & Machine Learning and a convenient option of csv file export for trending articles and searched articles.
+Doby uses unigram, bigram and trigram frequency from the context of the searched articles to help users understand the topic in a fresh perspective. It also provides a random thesis generator via Markov chain to create a sentence based on the collection of abstracts in the articles. In addition, a convenient option of csv file export for trending and queried articles.
 
 
 ## Flow Chart
@@ -69,7 +69,7 @@ The home page includes the search bar, trending articles from PubMed (as of curr
 
 
 ### Search Page
-The search page includes the queried keywords, auto sentence generator (refresh button), list of searched articles, 'unigram, bigram, trigram' from searched articles, and also an option to export the articles as csv files + a home button.
+The search page includes the queried keywords, auto sentence generator via Markov chain (refresh button), list of searched articles, 'unigram, bigram, trigram' from searched articles, and also an option to export the articles as csv files.
 
 
 <img src="/doby screenshots/lemon and brain.png?raw=true" width="600px">
