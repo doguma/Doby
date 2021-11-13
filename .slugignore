@@ -1,3 +1,4 @@
 /doby screenshots
 /.git
-/README.md
+*.md
+*.png
