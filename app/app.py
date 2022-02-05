@@ -21,18 +21,21 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 
 
+# keywords
 class Word(db.Model):
     word = db.Column(db.String(80), nullable=False, primary_key=True)
 
     def __repr__(self):
         return "<Keyword: {}>".format(self.word)
 
+# generated thesis / sentence
 class Thesis(db.Model):
     thesis = db.Column(db.String(1000), nullable=False, primary_key=True)
 
     def __repr__(self):
         return "{}".format(self.thesis)
 
+# trending articles
 class TrendyArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     title = db.Column(db.String(300))
@@ -45,7 +48,7 @@ class TrendyArticle(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.id, self.title, self.authors, self.authors_full, self.abstract, self.abstract_full, self.url)
 
-
+# searched articles
 class SearchArticle(db.Model):
     id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
     title = db.Column(db.String(300))
@@ -59,6 +62,7 @@ class SearchArticle(db.Model):
         return "<Article: {}>".format(self.id, self.title, self.authors, self.authors_full, self.abstract, self.abstract_full, self.url)
 
 
+# unigram for trending articles
 class WordCloudT1(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -66,6 +70,7 @@ class WordCloudT1(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)
 
+# bigram for trending articles
 class WordCloudT2(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -73,6 +78,7 @@ class WordCloudT2(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)
 
+# trigram for trending articles
 class WordCloudT3(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -80,6 +86,8 @@ class WordCloudT3(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)                
 
+
+# unigram for searched articles
 class WordCloudS1(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -87,7 +95,7 @@ class WordCloudS1(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)
 
-
+# bigram for searched articles
 class WordCloudS2(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -95,6 +103,7 @@ class WordCloudS2(db.Model):
     def __repr__(self):
         return "<Article: {}>".format(self.word, self.count)
 
+# trigram for searched articles
 class WordCloudS3(db.Model):
     word = db.Column(db.String(100), unique=True, nullable=False, primary_key=True)
     count = db.Column(db.Integer)
@@ -111,15 +120,21 @@ db.session.query(WordCloudT2).delete()
 db.session.query(WordCloudT3).delete() 
 db.session.query(Thesis).delete() 
 
+
+# get trending articles
 res = trending()
+
+# add to postgre db
 for i in res:
     if not TrendyArticle.query.filter_by(id=i['pubmed_id']).first():
         new_article = TrendyArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], authors_full = i['authors_full'], abstract=i['text'], abstract_full=i['text_full'], url=i['url'])
         db.session.add(new_article)
 
 
+# create word cloud for trending articles
 ngram1_t, ngram2_t, ngram3_t = createcloud_trendy(res)
 
+# add to postgre db 
 for key, value in ngram1_t.items():
     if not WordCloudT1.query.filter_by(word=key).first():
         new_ngram1 = WordCloudT1(word=key, count=value)
@@ -141,6 +156,8 @@ today = date.today().strftime("%b %d, %Y")
 message = ''
 toggle = False
 
+
+# home page - index.html
 @app.route('/', methods=["GET", "POST"])
 def index():
     message = ''
@@ -173,7 +190,7 @@ def index():
     return render_template("index.html", trending_articles = articles, today = today, keywords = keywords, err_message = message, ngram1 = wc_1gram, ngram2 = wc_bigram, ngram3 = wc_trigram)
 
 
-
+# delete keyword button
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
     if request.form:
@@ -184,6 +201,7 @@ def delete():
         return redirect(url_for('.index'))
 
 
+# second page - search.html
 @app.route("/search", methods=["GET", "POST"])
 def search():
 
@@ -209,6 +227,7 @@ def search():
         db.session.query(Thesis).delete() 
 
         res2 = search_keyword(temp_string)
+
         for i in res2:
             if not SearchArticle.query.filter_by(id=i['pubmed_id']).first():
                 new_article = SearchArticle(id=i['pubmed_id'], title=i['title'], authors=i['authors'], authors_full = i['authors_full'], abstract=i['text'], abstract_full=i['text_full'], url=i['url'])
@@ -242,6 +261,7 @@ def search():
 
 
 
+# go home button
 @app.route("/go-home", methods=["GET", "POST"])
 def gohome():
     if request.form:
@@ -250,6 +270,7 @@ def gohome():
         return redirect(url_for('.index'))
 
 
+# export csv button - searched articles
 @app.route("/to-csv-sa", methods=["GET", "POST"])
 def tocsv_sa():
     if request.form:
@@ -275,6 +296,7 @@ def tocsv_sa():
         return resp
 
 
+# export csv button - trending articles
 @app.route("/to-csv-ta", methods=["GET", "POST"])
 def tocsv_ta():
     if request.form:
@@ -300,10 +322,10 @@ def tocsv_ta():
         return resp
 
 
+# refresh thesis - random sentence generator
 @app.route("/refresh", methods=["GET", "POST"])
 def refresh():
 
-    
     if request.form:
         request.form.get("refresh")
         db.session.query(Thesis).delete() 
@@ -320,5 +342,6 @@ def refresh():
     return redirect(url_for('.search'))
 
 
+# run flask app
 if __name__ == "__main__":
     app.run(debug=True)

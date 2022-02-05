@@ -19,6 +19,8 @@ def start_chromedriver():
 def remove_space(string):
     return re.sub(r'\n', '', string)
 
+
+# get trendy articles
 def trending():
     driver = start_chromedriver()
     driver.get('https://pubmed.ncbi.nlm.nih.gov/trending/')
@@ -61,11 +63,13 @@ def trending():
     return temp
     
 
+# get articles with given keywords
 def search_keyword(keyword):
     driver = start_chromedriver()
     driver.get('https://pubmed.ncbi.nlm.nih.gov/')
 
     time.sleep(1)
+    # find searchbar, fill keywords & enter
     search_box = driver.find_element_by_name('term')
     search_box.send_keys(keyword)
     search_box.submit()
